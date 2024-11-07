@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UInputDate, UAccordion, UCalendar, UPopover, UContentTable } from '$lib/index.js';
+	import { UInputDate, UAccordion } from '$lib/index.js';
 	const items = [
 		{
 			id: 'item-1',
@@ -20,7 +20,6 @@
 	];
 </script>
 
-<UContentTable/>
 <section class="flex h-screen w-full items-center justify-center">
 	<div class="max-w-lg">
 		<UInputDate />
