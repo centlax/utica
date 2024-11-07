@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { createTooltip, melt, createSync } from '@melt-ui/svelte';
 	import type { Snippet } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 
 	type Props = {
 		value?: boolean;
 		trigger?: Snippet;
 		children?: Snippet;
+		content?: Snippet;
 	};
 
 	const {
@@ -30,19 +31,21 @@
 	});
 </script>
 
-{#if props.trigger}
+{#if props.children}
 	<span use:melt={$trigger}>
-		{@render props.trigger()}
+		{@render props.children()}
 	</span>
 {/if}
 
 {#if value}
 	<div
 		use:melt={$content}
-		transition:fade={{ duration: 100 }}
-		class="z-10 rounded-lg bg-red-500 shadow"
+		transition:slide={{axis: 'x'}}
+		class="z-10 relative"
 	>
-		{@render props.children?.()}
+		{#if props.content}
+			{@render props.content()}
+		{/if}
 		<div use:melt={$arrow}></div>
 	</div>
 {/if}
