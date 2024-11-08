@@ -15,12 +15,7 @@
 {#if props.toast}
 	{@render props.toast()}
 {:else}
-	<UToast
-		transition={{
-			in: { func: fly, options: { duration: 5000, x: '100%' } },
-			out: { func: fly, options: { duration: 5000, x: '100%' } }
-		}}
-	/>
+	<UToast />
 {/if}
 <div {...props}>
 	{@render props.children()}

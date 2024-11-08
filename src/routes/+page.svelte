@@ -5,7 +5,9 @@
 
 	function toast() {
 		create({
-			data: warn
+			data: {
+				snippet: warn,
+			}
 		});
 	}
 </script>

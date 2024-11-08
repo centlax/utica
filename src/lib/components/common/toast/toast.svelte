@@ -1,32 +1,31 @@
 <script lang="ts" module>
+	export let props: ToastProps = {
+		delay: 5000,
+		type: 'foreground',
+		hover: 'pause'
+	};
 	const {
 		elements: { content },
 		helpers,
 		states: { toasts },
 		actions: { portal }
-	} = createToaster<Snippet>();
+	} = createToaster<ToastProps>({
+		closeDelay: props.delay,
+		type: props.type,
+		hover: props.hover
+	});
 	export const help = helpers;
 </script>
 
 <script lang="ts">
+	/** Imports */
 	import { createToaster, melt } from '@melt-ui/svelte';
-	import type { Snippet } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { fly } from 'svelte/transition';
-	import type { Transition } from 'svelte/types/compiler/interfaces';
+	import type { ToastProps } from './toast.js';
 
-	
-	let { ...props } = $props();
-	function readTransitions(transition: Transition) {
-		return {
-			inFunc: transition.in ? transition.in.func : () => {},
-			inOptions: transition.in ? transition.in.options : null,
-			outFunc: transition.out ? transition.out.func : () => {},
-			outOptions: transition.out ? transition.out.options : null
-		};
-	}
-	// @ts-ignore
-	const { inFunc, inOptions, outFunc, outOptions } = readTransitions(props.transition);
+	/** Props */
+	let { ...props }: ToastProps = $props();
 </script>
 
 <div
@@ -38,10 +37,12 @@
 			use:melt={$content(id)}
 			{...props}
 			animate:flip={{ duration: 500 }}
-			in:inFunc={inOptions}
-			out:outFunc={outOptions}
+			in:fly={{ duration: 150, x: '100%' }}
+			out:fly={{ duration: 150, x: '100%' }}
 		>
-			{@render data()}
+			{#if data.snippet}
+				{@render data.snippet()}
+			{/if}
 		</div>
 	{/each}
 </div>
