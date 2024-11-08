@@ -1,11 +1,11 @@
 /** Imports */
-import type { Snippet } from "svelte";
+import type { Snippet } from 'svelte';
 
 /** Styles */
-const styles = {}
+const styles = {};
 export const toolbar = styles;
 
 /** Props */
 export interface ToolbarProps {
-    children?: Snippet
+	children?: Snippet;
 }

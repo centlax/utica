@@ -2,7 +2,7 @@
 /** application */
 export { default as UAlert } from '../../components/application/alert/alert.svelte';
 export { default as UCombobox } from '../../components/application/combobox/combobox.svelte';
-export { default as UCommandPallet } from '../../components/application/command/menu.svelte';
+export { default as UCommandMenu } from '../../components/application/command/menu.svelte';
 export { default as UDashboard } from '../../components/application/dashboard/dashboard.svelte';
 export { default as UFieldset } from '../../components/application/fieldset/fieldset.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
@@ -15,11 +15,14 @@ export { default as UPaginate } from '../../components/application/paginate/pagi
 export { default as URadio } from '../../components/application/radio/radio.svelte';
 export { default as USheet } from '../../components/application/sheet/sheet.svelte';
 export { default as USidebar } from '../../components/application/sidebar/sidebar.svelte';
+export { default as UTextarea } from '../../components/application/textarea/textarea.svelte';
 export { default as UToolbar } from '../../components/application/toolbar/toolbar.svelte';
 
 /** common */
 export { default as UAccordion } from '../../components/common/accordion/accordion.svelte';
+export { default as UAccordionItem } from '../../components/common/accordion/item.svelte';
 export { default as UAvatar } from '../../components/common/avatar/avatar.svelte';
+export { default as UAvatarGroup } from '../../components/common/avatar/group.svelte';
 export { default as UBadge } from '../../components/common/badge/badge.svelte';
 export { default as UButton } from '../../components/common/button/button.svelte';
 export { default as UButtonGroup } from '../../components/common/button/group.svelte';

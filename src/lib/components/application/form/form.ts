@@ -8,4 +8,5 @@ export interface FormProps extends HTMLAttributes<HTMLFormElement> {
 	children?: Snippet;
 	schema?: string;
 	state?: string;
+	on?: string
 }

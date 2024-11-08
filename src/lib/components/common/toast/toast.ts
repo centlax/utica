@@ -1,14 +1,12 @@
 /** Imports */
-import type { CreateToasterProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
 
 /** Styles */
 const styles = {};
 export const toast = styles;
+
 /** Props */
-export interface ToastProps  {
-	snippet?: Snippet;
-	delay?: CreateToasterProps['closeDelay'];
-	type?: CreateToasterProps['type'];
-	hover?: CreateToasterProps['hover'];
+export interface ToastProps extends HTMLAttributes<HTMLDivElement> {
+	children?: Snippet;
 }

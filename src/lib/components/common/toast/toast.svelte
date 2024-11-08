@@ -1,20 +1,12 @@
 <script lang="ts" module>
-	export let props: ToastProps = {
-		delay: 5000,
-		type: 'foreground',
-		hover: 'pause'
-	};
 	const {
 		elements: { content },
 		helpers,
 		states: { toasts },
 		actions: { portal }
-	} = createToaster<ToastProps>({
-		closeDelay: props.delay,
-		type: props.type,
-		hover: props.hover
-	});
-	export const help = helpers;
+	} = createToaster<Snippet>();
+
+	export const helper = helpers;
 </script>
 
 <script lang="ts">
@@ -23,6 +15,7 @@
 	import { flip } from 'svelte/animate';
 	import { fly } from 'svelte/transition';
 	import type { ToastProps } from './toast.js';
+	import type { Snippet } from 'svelte';
 
 	/** Props */
 	let { ...props }: ToastProps = $props();
@@ -32,7 +25,7 @@
 	use:portal
 	class="fixed right-0 top-0 z-50 m-4 flex flex-col items-end gap-2 md:bottom-0 md:top-auto"
 >
-	{#each $toasts as { id, data } (id)}
+	{#each $toasts as { id, data, closeDelay } (id)}
 		<div
 			use:melt={$content(id)}
 			{...props}
@@ -40,8 +33,12 @@
 			in:fly={{ duration: 150, x: '100%' }}
 			out:fly={{ duration: 150, x: '100%' }}
 		>
-			{#if data.snippet}
-				{@render data.snippet()}
+			{closeDelay}
+			{#if data}
+				{@render data()}
+			{/if}
+			{#if props.children}
+				{@render props.children()}
 			{/if}
 		</div>
 	{/each}

@@ -1,11 +1,11 @@
 /** Imports */
-import type { Snippet } from "svelte";
+import type { Snippet } from 'svelte';
 
 /** Styles */
-const styles = {}
+const styles = {};
 export const radio = styles;
 
 /** Props */
 export interface RadioProps {
-    children?: Snippet
+	children?: Snippet;
 }

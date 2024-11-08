@@ -1,7 +1,6 @@
 <script lang="ts">
-    /** Imports */
-    /** Props */
+	/** Imports */
+	/** Props */
 
-    /** styles */
-
+	/** styles */
 </script>
