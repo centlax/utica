@@ -4,7 +4,8 @@ import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
 /** Styles */
 const styles = {
 	root: {
-		spacing: 'space-y-1'
+		spacing: 'space-y-1 [data-ui=field]]:mt-3',
+
 	},
 	north: { flex: 'flex justify-between' },
 	label: {
