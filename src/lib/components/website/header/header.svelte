@@ -46,7 +46,7 @@
 				</svg>
 			</button>
 		</div>
-		<div class="hidden lg:flex lg:gap-x-12">
+		<div class="hidden lg:flex">
 			{#if props.children}
 				{@render props.children()}
 			{/if}

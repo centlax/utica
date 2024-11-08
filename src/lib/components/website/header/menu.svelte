@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
 	import type { HeaderMenuProps } from './menu.js';
 
 	/** Imports */
@@ -20,6 +21,7 @@
 
 {#if props.link && props.link.links}
 	<div
+		transition:slide
 		class="mx-auto mt-3 w-screen max-w-md overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5"
 	>
 		<div class="p-4">

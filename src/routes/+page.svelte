@@ -12,16 +12,47 @@
 				{ label: 'Analytics', description: 'Get a better understanding of your traffic' }
 			]
 		},
-		{ title: 'Features',
-		links: [
+		{
+			title: 'Features',
+			links: [
+				{ label: 'Analytics', description: 'Get a better understanding of your traffic' },
 				{ label: 'Analytics', description: 'Get a better understanding of your traffic' },
 				{ label: 'Analytics', description: 'Get a better understanding of your traffic' },
 				{ label: 'Analytics', description: 'Get a better understanding of your traffic' },
 				{ label: 'Analytics', description: 'Get a better understanding of your traffic' },
 				{ label: 'Analytics', description: 'Get a better understanding of your traffic' }
 			]
-		 },
-		{ title: 'Marketplace' },
+		},
+		{
+			title: 'Marketplace',
+			links: [
+				{
+					label: 'Analytics',
+					description:
+						'Get a better understanding of your traffic Get a better understanding of your traffic'
+				},
+				{
+					label: 'Analytics',
+					description:
+						'Get a better understanding of your traffic Get a better understanding of your traffic'
+				},
+				{
+					label: 'Analytics',
+					description:
+						'Get a better understanding of your traffic Get a better understanding of your traffic'
+				},
+				{
+					label: 'Analytics',
+					description:
+						'Get a better understanding of your traffic Get a better understanding of your traffic'
+				},
+				{
+					label: 'Analytics',
+					description:
+						'Get a better understanding of your traffic Get a better understanding of your traffic'
+				}
+			]
+		},
 		{ title: 'Company' }
 	];
 </script>
@@ -43,6 +74,7 @@
 			{/if}
 		{/each}
 	</UHeader>
+
 	<UFooter>
 		<img
 			class="h-9"

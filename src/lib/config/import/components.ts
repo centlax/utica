@@ -32,6 +32,7 @@ export { default as UInput } from '../../components/common/input/input.svelte';
 export { default as UInputPin } from '../../components/common/input/pin.svelte';
 export { default as UInputTag } from '../../components/common/input/tag.svelte';
 export { default as UProgress } from '../../components/common/progress/progress.svelte';
+export { default as UProvide } from '../../components/common/provide/provide.svelte';
 export { default as URange } from '../../components/common/range/range.svelte';
 export { default as USelectMenu } from '../../components/common/select/menu.svelte';
 export { default as USelect } from '../../components/common/select/select.svelte';

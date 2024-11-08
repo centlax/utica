@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { createTooltip, melt, createSync } from '@melt-ui/svelte';
 	import type { Snippet } from 'svelte';
-	import { fade, slide } from 'svelte/transition';
 
 	type Props = {
 		value?: boolean;
@@ -19,8 +18,8 @@
 		},
 		openDelay: 0,
 		closeDelay: 0,
-		closeOnPointerDown: false,
-		forceVisible: true
+		forceVisible: true,
+		group: true
 	});
 	let { value = $bindable(false), ...props }: Props = $props();
 
@@ -38,11 +37,7 @@
 {/if}
 
 {#if value}
-	<div
-		use:melt={$content}
-		transition:slide={{axis: 'x'}}
-		class="z-10 relative"
-	>
+	<div use:melt={$content} class="relative z-10">
 		{#if props.content}
 			{@render props.content()}
 		{/if}
