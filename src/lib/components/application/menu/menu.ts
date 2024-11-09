@@ -8,5 +8,5 @@ export const menu = styles;
 /** Props */
 export interface MenuProps {
 	children?: Snippet;
-	as?: string
+	as?: string;
 }

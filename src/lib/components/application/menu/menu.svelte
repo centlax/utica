@@ -1,15 +1,16 @@
 <script lang="ts">
-    /** Imports */
-    import { type MenuProps } from './menu.js'
-    /** Props */
-	let {
-		as = 'li',
-		...props
-	}: MenuProps = $props()
-    /** Styles */
+	/** Imports */
+	import { type MenuProps } from './menu.js';
+	/** Props */
+	let { as = 'li', ...props }: MenuProps = $props();
+	/** Styles */
 </script>
 
-<svelte:element this={as} {...props} class="group flex cursor-default select-none items-center rounded-md px-3 py-2">
+<svelte:element
+	this={as}
+	{...props}
+	class="group flex cursor-default select-none items-center rounded-md px-3 py-2"
+>
 	<!-- Active: "text-white forced-colors:text-[Highlight]", Not Active: "text-gray-400" -->
 	<svg
 		class="h-6 w-6 flex-none text-gray-400"
