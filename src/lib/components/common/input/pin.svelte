@@ -6,19 +6,16 @@
 	import { writable } from 'svelte/store';
 
 	/** Props */
-	let {  
-        value = $bindable([]),
-        ...props 
-    }: InputPinProps = $props();
+	let { value = $bindable([]), ...props }: InputPinProps = $props();
 
 	const {
 		elements: { root, input },
-        states
+		states
 	} = createPinInput({
-		defaultValue: props['default'] ?? [''],
+		defaultValue: props['default'] ?? ['3', '4'],
 		placeholder: props['placeholder'],
 		name: props['name'],
-        value: writable(value),
+		value: writable(value),
 		disabled: props['disabled'] ?? false,
 		type: props['type'] ?? 'text',
 		ids: props['ids']
@@ -28,8 +25,8 @@
 	/** Styles */
 </script>
 
-<div use:melt={$root} class="flex items-center gap-2">
-	{#if props.length }
+<div use:melt={$root} class="flex items-center gap-2 {props.class}" {...props}>
+	{#if props.length}
 		{#each Array.from({ length: props.length }) as _}
 			{@render props.children()}
 		{/each}

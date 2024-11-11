@@ -1,6 +1,7 @@
 import { twJoin, twMerge } from 'tailwind-merge';
 import type { DeepStyles, Utility } from './types.js';
-
+import clsx from 'clsx';
+import type { ClassValue } from 'clsx';
 /**
  * Merges multiple class lists into a single class string.
  *
@@ -10,13 +11,9 @@ import type { DeepStyles, Utility } from './types.js';
  * The function joins every string from index 0 to (n-2) with twJoin,
  * then includes the last string separately in the twMerge.
  */
-export function merge(...classLists: string[]): string {
-	if (classLists.length === 0) return '';
 
-	const allExceptLast = classLists.slice(0, -1);
-	const last = classLists[classLists.length - 1];
-
-	return twMerge(twJoin(...allExceptLast), last);
+export function merge(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
 }
 
 /**

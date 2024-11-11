@@ -3,6 +3,8 @@
 	import { flyAndScale } from '$lib/theme/transition/fly-scale.js';
 	import { fade } from 'svelte/transition';
 	import type { Snippet } from 'svelte';
+	import { setContext } from 'svelte';
+	import { useToggle } from '$lib/composables/toggle.js';
 
 	type Props = {
 		children?: Snippet;
@@ -12,23 +14,22 @@
 	let { value = $bindable(false), ...props }: Props = $props();
 
 	const {
-		elements: { overlay, content, portalled, trigger },
+		elements: { overlay, content, portalled, trigger, close },
 		states
 	} = createDialog({
 		forceVisible: true
 	});
-	const sync = createSync(states);
 
+	const sync = createSync(states);
 	$effect(() => {
 		sync.open(value, (v) => (value = v));
 	});
+
+	const toogle = useToggle();
+	toogle.set(states.open, trigger, close);
 </script>
 
-{#if props.children}
-	<span use:melt={$trigger}>
-		{@render props.children()}
-	</span>
-{/if}
+{@render props.children?.()}
 
 {#if value}
 	<div class="" use:melt={$portalled}>

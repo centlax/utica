@@ -4,11 +4,10 @@
 
 	/** Props  */
 	let { ...props }: ButtonProps = $props();
+
 	/** Styles  */
 </script>
 
 <svelte:element this={props.href ? 'a' : 'button'}>
-	{#if props.children}
-		{@render props.children()}
-	{/if}
+	{@render props.children?.()}
 </svelte:element>

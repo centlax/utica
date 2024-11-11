@@ -8,4 +8,7 @@ export const paginate = styles;
 /** Props */
 export interface PaginateProps {
 	children?: Snippet;
+	ellipsis?: Snippet;
+	prev?: Snippet;
+	next?: Snippet;
 }

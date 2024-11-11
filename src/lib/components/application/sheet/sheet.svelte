@@ -1,17 +1,14 @@
 <script lang="ts">
 	import { createDialog, melt, createSync } from '@melt-ui/svelte';
-	import { fade, fly } from 'svelte/transition';
-	import type { Snippet } from 'svelte';
+	import { fade, fly, type FlyParams } from 'svelte/transition';
+	import { useToggle } from '$lib/composables/toggle.js';
+	import { merge } from '$pkgs/ui/index.js';
+	import type { SheetProps } from './sheet.js';
 
-	type Props = {
-		children?: Snippet;
-		content?: Snippet;
-		value?: boolean;
-	};
-	let { value = $bindable(false), ...props }: Props = $props();
+	let { value = $bindable(false), ...props }: SheetProps = $props();
 
 	const {
-		elements: { overlay, content, portalled, trigger },
+		elements: { overlay, content, portalled, trigger, close },
 		states
 	} = createDialog({
 		forceVisible: true
@@ -21,14 +18,14 @@
 	$effect(() => {
 		sync.open(value, (v) => (value = v));
 	});
+	const toogle = useToggle();
+	toogle.set(states.open, trigger, close);
+	const flyParams: FlyParams = { x: -350, duration: 300, opacity: 1 };
+
+	let containsDir: boolean = /right-|top-|bottom-/.test(props.class ?? '');
 </script>
 
-{#if props.children}
-	<span use:melt={$trigger}>
-		{@render props.children()}
-	</span>
-{/if}
-
+{@render props.children?.()}
 {#if value}
 	<div class="" use:melt={$portalled}>
 		<div
@@ -37,18 +34,16 @@
 			transition:fade={{ duration: 150 }}
 		></div>
 		<div
-			class="ffixed left-0 top-0 z-50 h-screen w-full max-w-[350px] bg-white p-6
-            shadow-lg focus:outline-none"
-			transition:fly={{
-				x: -350,
-				duration: 300,
-				opacity: 1
-			}}
+			{...props}
+			class={merge(
+				'fixed top-0 z-50 h-screen w-full max-w-[350px] bg-white p-6 shadow-lg focus:outline-none',
+				!containsDir && 'left-0',
+				props.class
+			)}
+			transition:fly={flyParams}
 			use:melt={$content}
 		>
-			{#if props.content}
-				{@render props.content()}
-			{/if}
+			{@render props.content?.()}
 		</div>
 	</div>
 {/if}

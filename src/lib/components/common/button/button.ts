@@ -1,4 +1,5 @@
 import type { Snippet } from 'svelte';
+import type { ActionReturn } from 'svelte/action';
 import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 /**
@@ -111,4 +112,5 @@ type HTMLButtunAnchorAttributes = HTMLButtonAttributes & HTMLAnchorAttributes;
 export interface ButtonProps extends HTMLButtunAnchorAttributes {
 	label?: string;
 	children?: Snippet;
+	use?: ActionReturn;
 }
