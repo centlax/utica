@@ -1,4 +1,5 @@
-import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
+import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 /**
  * states => default, hover, focused, disabeled
@@ -106,6 +107,8 @@ const styles = {
 
 export const button = styles;
 
-export interface ButtonProps extends HTMLButtonAttributes {
+type HTMLButtunAnchorAttributes = HTMLButtonAttributes & HTMLAnchorAttributes;
+export interface ButtonProps extends HTMLButtunAnchorAttributes {
 	label?: string;
+	children?: Snippet;
 }
