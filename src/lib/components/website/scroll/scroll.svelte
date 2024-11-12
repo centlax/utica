@@ -17,13 +17,11 @@
 
 <div
 	use:melt={$root}
-	class="relative h-72 w-52 overflow-hidden rounded-md border bg-white text-sky-900 shadow-lg"
+	class="relative  overflow-hidden "
 >
-	<div use:melt={$viewport} class="h-full w-full rounded-[inherit]">
-		<div use:melt={$content}>
-			{#if props.children}
-				{@render props.children()}
-			{/if}
+	<div use:melt={$viewport} class="h-full w-full">
+		<div use:melt={$content} >
+				{@render props.children?.()}
 		</div>
 	</div>
 	<div

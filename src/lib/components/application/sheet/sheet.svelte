@@ -20,8 +20,6 @@
 	});
 	const toogle = useToggle();
 	toogle.set(states.open, trigger, close);
-	const flyParams: FlyParams = { x: -350, duration: 300, opacity: 1 };
-
 	let containsDir: boolean = /right-|top-|bottom-/.test(props.class ?? '');
 </script>
 
@@ -40,7 +38,8 @@
 				!containsDir && 'left-0',
 				props.class
 			)}
-			transition:fly={flyParams}
+			in:fly={{ x: '100%', duration: 500, opacity: 1 }}
+			out:fly={{ x: '100%', duration: 500, opacity: 0 }}
 			use:melt={$content}
 		>
 			{@render props.content?.()}

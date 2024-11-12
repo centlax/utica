@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { createDateField, createDateRangeField, melt } from '@melt-ui/svelte';
 	import { type InputDateProps } from './date.js';
-	import { CalendarDateTime } from '@internationalized/date';
 
 	let { mode = 'field', picker = false, ...props }: InputDateProps = $props();
 	const {

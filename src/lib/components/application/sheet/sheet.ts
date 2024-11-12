@@ -13,5 +13,5 @@ export interface SheetProps extends Props {
 	children?: Snippet;
 	content?: Snippet;
 	value?: boolean;
-	portal?: CreateDialogProps['portal']
+	portal?: CreateDialogProps['portal'];
 }

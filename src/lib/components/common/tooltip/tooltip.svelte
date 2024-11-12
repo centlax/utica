@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { useToast } from '$lib/composables/toast.js';
 	import { useToggle } from '$lib/composables/toggle.js';
 	import { createTooltip, melt, createSync } from '@melt-ui/svelte';
-	import type { Snippet } from 'svelte';
 	import type { TooltipProps } from './tooltip.js';
+	import { merge } from '$pkgs/ui/index.js';
 
 	let { value = $bindable(false), ...props }: TooltipProps = $props();
 
@@ -30,10 +29,8 @@
 {@render props.children?.()}
 
 {#if value}
-	<div use:melt={$content} class="relative z-10 bg-white ring-1">
-		{#if props.content}
-			{@render props.content()}
-		{/if}
-		<div  use:melt={$arrow}></div>
+	<div {...props} use:melt={$content} class={merge('relative z-10', props.class)}>
+		{@render props.content?.()}
+		<div use:melt={$arrow}></div>
 	</div>
 {/if}

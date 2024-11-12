@@ -13,6 +13,6 @@ export interface TooltipProps extends Props {
 	children?: Snippet;
 	content?: Snippet;
 	value?: boolean;
-	portal?: CreateTooltipProps['portal'],
-    floaf?: CreateTooltipProps['positioning']
+	portal?: CreateTooltipProps['portal'];
+	floaf?: CreateTooltipProps['positioning'];
 }

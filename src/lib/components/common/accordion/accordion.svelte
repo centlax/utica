@@ -24,17 +24,13 @@
 
 <!-- <div use:melt={$root}></div> -->
 <div use:melt={$item(id)}>
-	<button use:melt={$trigger(id)}>
-		{#if props.trigger}
-			{@render props.trigger()}
-		{/if}
+	<button use:melt={$trigger(id)} class="w-full">
+		{@render props.trigger?.()}
 	</button>
 
 	{#if $isSelected(id)}
 		<div use:melt={$content(id)} transition:slide>
-			{#if props.content}
-				{@render props.content()}
-			{/if}
+			{@render props.content?.()}
 		</div>
 	{/if}
 </div>
