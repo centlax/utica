@@ -15,13 +15,10 @@
 	});
 </script>
 
-<div
-	use:melt={$root}
-	class="relative  overflow-hidden "
->
+<div use:melt={$root} class="relative overflow-hidden">
 	<div use:melt={$viewport} class="h-full w-full">
-		<div use:melt={$content} >
-				{@render props.children?.()}
+		<div use:melt={$content}>
+			{@render props.children?.()}
 		</div>
 	</div>
 	<div

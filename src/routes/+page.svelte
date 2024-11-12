@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UHeader } from '$lib/index.js';
+	import { UHeader, UPaginate } from '$lib/index.js';
 	import type { Link } from '$lib/types/link.js';
 	/** transition */
 
@@ -33,7 +33,7 @@
 	];
 </script>
 
-<section class="flex h-screen w-screen overflow-hidden bg-white px-8">
+<section class="flex h-screen w-screen flex-col overflow-hidden bg-white px-8">
 	<UHeader {links}>
 		{#snippet logo()}
 			<a href="/" class="-m-1.5 p-1.5">
@@ -46,4 +46,5 @@
 			</a>
 		{/snippet}
 	</UHeader>
+	<UPaginate />
 </section>

@@ -1,4 +1,5 @@
 /** Imports */
+import type { CreatePaginationProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
 
 /** Styles */
@@ -11,4 +12,12 @@ export interface PaginateProps {
 	ellipsis?: Snippet;
 	prev?: Snippet;
 	next?: Snippet;
+	/** The total number of items. */
+	count?: CreatePaginationProps['count'];
+	default?: CreatePaginationProps['defaultPage'];
+	sibling?: CreatePaginationProps['siblingCount'];
+	/** The number of items per page. */
+	qunatity?: CreatePaginationProps['perPage'];
+	value?: CreatePaginationProps['page']
+
 }

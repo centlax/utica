@@ -56,7 +56,6 @@
 		</nav>
 		<!-- Mobile menu, show/hide based on menu open state. -->
 		{#snippet content()}
-		
 			<div class="flex items-center justify-between">
 				{@render props.logo?.()}
 
