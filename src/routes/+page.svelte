@@ -1,5 +1,12 @@
 <script lang="ts">
-	import { UAccordion, UAccordionItem, UHeader, UPaginate } from '$lib/index.js';
+	import {
+		UAccordion,
+		UAccordionItem,
+		UAvatar,
+		UAvatarGroup,
+		UHeader,
+		UPaginate
+	} from '$lib/index.js';
 	import type { Link } from '$lib/types/link.js';
 	/** transition */
 
@@ -7,26 +14,22 @@
 		{
 			label: 'Documentation',
 			icon: 'i-heroicons-book-open',
-			href: '/getting-started',
+			href: '/getting-started'
 		},
 		{
 			label: 'Playground',
 			icon: 'i-simple-icons-stackblitz',
-			href: '/playground',
-
+			href: '/playground'
 		},
 		{
 			label: 'Roadmap',
 			icon: 'i-heroicons-map',
-			href: '/roadmap',
-
-			
+			href: '/roadmap'
 		},
 		{
 			label: 'Pro',
 			icon: 'i-heroicons-square-3-stack-3d',
-			href: '/pro',
-
+			href: '/pro'
 		},
 		{
 			label: 'Releases',
@@ -42,22 +45,19 @@
 			title: 'What is it?',
 			description:
 				'A collection of accessible & unstyled component builders for Svelte applications.',
-				disabled: false
-
+			disabled: false
 		},
 		{
 			id: 'item-2',
 			title: 'Can I customize it?',
 			description: 'Totally, it is 100% stylable and overridable.',
 			disabled: true
-
 		},
 		{
 			id: 'item-3',
 			title: 'Svelte is awesome, huh?',
 			description: 'Yes, and so are you!',
 			disabled: false
-
 		}
 	];
 </script>
@@ -78,9 +78,9 @@
 
 	<UPaginate />
 	<UAccordion>
-		{#each items as { id, title,  description }, i}
-			<UAccordionItem  {id}>
-				<button >{title}</button>
+		{#each items as { id, title, description }, i}
+			<UAccordionItem {id}>
+				<button>{title}</button>
 
 				{#snippet content()}
 					{description}
@@ -88,4 +88,10 @@
 			</UAccordionItem>
 		{/each}
 	</UAccordion>
+
+	<UAvatarGroup>
+		<UAvatar src="https://github.com/benjamincanac.png" alt="Benjamin Canac" />
+		<UAvatar src="https://github.com/romhml.png" alt="Romain Hamel" />
+		<UAvatar src="https://github.com/noook.png" alt="Neil Richter" />
+	</UAvatarGroup>
 </section>

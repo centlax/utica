@@ -23,7 +23,7 @@
 	</div>
 
 	{#if $selected(id)}
-		<div use:melt={$content(id)} transition:slide>
+		<div use:melt={$content(id)} in:slide out:slide>
 			{@render props.content?.()}
 		</div>
 	{/if}

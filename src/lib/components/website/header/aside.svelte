@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { UAccordion } from '$lib/index.js';
+	import { UAccordion, UAccordionItem } from '$lib/index.js';
 </script>
 
 <div class="space-y-2 py-6">
 	<div class="-mx-3">
-		<UAccordion id="wos">
-			{#snippet trigger()}
+		<UAccordion>
+			<UAccordionItem>
 				<button
 					type="button"
 					class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
@@ -13,11 +13,6 @@
 					aria-expanded="false"
 				>
 					Product
-					<!--
-Expand/collapse icon, toggle classes based on menu open state.
-
-Open: "rotate-180", Closed: ""
--->
 					<svg
 						class="h-5 w-5 flex-none"
 						viewBox="0 0 20 20"
@@ -32,47 +27,48 @@ Open: "rotate-180", Closed: ""
 						/>
 					</svg>
 				</button>
-			{/snippet}
-			{#snippet content()}
-				<!-- 'Product' sub-menu, show/hide based on menu state. -->
-				<div class="mt-2 space-y-2" id="disclosure-1">
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Analytics</a
-					>
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Engagement</a
-					>
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Security</a
-					>
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Integrations</a
-					>
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Automations</a
-					>
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Watch demo</a
-					>
-					<a
-						href="/"
-						class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
-						>Contact sales</a
-					>
-				</div>
-			{/snippet}
+
+				{#snippet content()}
+					<!-- 'Product' sub-menu, show/hide based on menu state. -->
+					<div class="mt-2 space-y-2" id="disclosure-1">
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Analytics</a
+						>
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Engagement</a
+						>
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Security</a
+						>
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Integrations</a
+						>
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Automations</a
+						>
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Watch demo</a
+						>
+						<a
+							href="/"
+							class="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+							>Contact sales</a
+						>
+					</div>
+				{/snippet}
+			</UAccordionItem>
 		</UAccordion>
 	</div>
 	<a
