@@ -1,36 +1,27 @@
 <script lang="ts">
-	import type { AccordionLink } from '$lib/types/link.js';
 	import { createAccordion, melt } from '@melt-ui/svelte';
-	import type { Snippet } from 'svelte';
-	import { slide } from 'svelte/transition';
+	import type { AccordionProps } from './accordion.js';
+	import { setContext } from 'svelte';
 
-	type Props = {
-		children?: Snippet;
-		item?: Snippet;
-		trigger?: Snippet;
-		content?: Snippet;
-		id: string;
-		links?: AccordionLink;
-	};
-	let { id, ...props }: Props = $props();
+	let { ...props }: AccordionProps = $props();
 
 	const {
 		elements: { content, item, trigger, root },
 		helpers: { isSelected }
 	} = createAccordion({
-		defaultValue: 'item-1'
+		multiple: props['multiple'],
+		disabled: props['disabled'],
+		forceVisible: props['force-visible'],
+		defaultValue: props['default-value'] ?? 'item-1',
+		value: props['value']
 	});
+
+	setContext('item', item);
+	setContext('trigger', trigger);
+	setContext('content', content);
+	setContext('selected', isSelected);
 </script>
 
-<!-- <div use:melt={$root}></div> -->
-<div use:melt={$item(id)}>
-	<button use:melt={$trigger(id)} class="w-full">
-		{@render props.trigger?.()}
-	</button>
-
-	{#if $isSelected(id)}
-		<div use:melt={$content(id)} transition:slide>
-			{@render props.content?.()}
-		</div>
-	{/if}
+<div {...props} use:melt={$root}>
+	{@render props.children?.()}
 </div>

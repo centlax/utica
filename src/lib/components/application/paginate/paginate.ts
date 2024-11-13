@@ -14,10 +14,9 @@ export interface PaginateProps {
 	next?: Snippet;
 	/** The total number of items. */
 	count?: CreatePaginationProps['count'];
-	default?: CreatePaginationProps['defaultPage'];
-	sibling?: CreatePaginationProps['siblingCount'];
+	'default-page'?: CreatePaginationProps['defaultPage'];
+	'sibling-count'?: CreatePaginationProps['siblingCount'];
 	/** The number of items per page. */
-	qunatity?: CreatePaginationProps['perPage'];
-	value?: CreatePaginationProps['page']
-
+	'per-page'?: CreatePaginationProps['perPage'];
+	value?: CreatePaginationProps['page'];
 }

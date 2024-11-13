@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UHeader, UPaginate } from '$lib/index.js';
+	import { UAccordion, UAccordionItem, UHeader, UPaginate } from '$lib/index.js';
 	import type { Link } from '$lib/types/link.js';
 	/** transition */
 
@@ -7,28 +7,57 @@
 		{
 			label: 'Documentation',
 			icon: 'i-heroicons-book-open',
-			href: '/getting-started'
+			href: '/getting-started',
 		},
 		{
 			label: 'Playground',
 			icon: 'i-simple-icons-stackblitz',
-			href: '/playground'
+			href: '/playground',
+
 		},
 		{
 			label: 'Roadmap',
 			icon: 'i-heroicons-map',
-			href: '/roadmap'
+			href: '/roadmap',
+
+			
 		},
 		{
 			label: 'Pro',
 			icon: 'i-heroicons-square-3-stack-3d',
-			href: '/pro'
+			href: '/pro',
+
 		},
 		{
 			label: 'Releases',
 			icon: 'i-heroicons-rocket-launch',
 			href: 'https://github.com/nuxt/ui/releases',
 			target: '_blank'
+		}
+	];
+
+	const items = [
+		{
+			id: 'item-1',
+			title: 'What is it?',
+			description:
+				'A collection of accessible & unstyled component builders for Svelte applications.',
+				disabled: false
+
+		},
+		{
+			id: 'item-2',
+			title: 'Can I customize it?',
+			description: 'Totally, it is 100% stylable and overridable.',
+			disabled: true
+
+		},
+		{
+			id: 'item-3',
+			title: 'Svelte is awesome, huh?',
+			description: 'Yes, and so are you!',
+			disabled: false
+
 		}
 	];
 </script>
@@ -46,5 +75,17 @@
 			</a>
 		{/snippet}
 	</UHeader>
+
 	<UPaginate />
+	<UAccordion>
+		{#each items as { id, title,  description }, i}
+			<UAccordionItem  {id}>
+				<button >{title}</button>
+
+				{#snippet content()}
+					{description}
+				{/snippet}
+			</UAccordionItem>
+		{/each}
+	</UAccordion>
 </section>
