@@ -6,6 +6,6 @@ const styles = {};
 export const dashboard = styles;
 
 /** Props */
-export interface DashboardProps {
-	children?: Snippet;
+export interface DashLayoutProps {
+	children: Snippet;
 }

@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { UDashboard } from '$lib/index.js';
+	import { UDashLayout } from '$lib/index.js';
+	let { ...props } = $props();
 </script>
 
-<UDashboard></UDashboard>
+<UDashLayout>
+	{@render props.children()}
+</UDashLayout>

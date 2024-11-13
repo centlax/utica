@@ -18,10 +18,10 @@ export interface PopoverProps extends Props {
 	'disable-focus-trap'?: CreatePopoverProps['disableFocusTrap'];
 	'arrow-size'?: CreatePopoverProps['arrowSize'];
 	'escape-behavior'?: CreatePopoverProps['escapeBehavior'];
-	'close-on-outerclick'?: CreatePopoverProps['closeOnOutsideClick'];
+	'close-outer-click'?: CreatePopoverProps['closeOnOutsideClick'];
 	'prevent-scroll'?: CreatePopoverProps['preventScroll'];
 	portal?: CreatePopoverProps['portal'];
 	'force-visible'?: CreatePopoverProps['forceVisible'];
-	'default-open'?: boolean;
+	'default-open'?: CreatePopoverProps['defaultOpen'];
 	value?: boolean;
 }

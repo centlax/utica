@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UAccordion, UAccordionItem, UHeader, UPaginate } from '$lib/index.js';
+	import { UAccordion, UAccordionItem, UHeader, UInput, UInputTag, UPaginate } from '$lib/index.js';
 	import type { Link } from '$lib/types/link.js';
 	/** transition */
 
@@ -81,4 +81,11 @@
 			</UAccordionItem>
 		{/each}
 	</UAccordion>
+	<UInputTag>
+		<UInput
+			type="text"
+			placeholder="Enter tags..."
+			class="min-w-[4.5rem] shrink grow basis-0 border-0 text-black outline-none focus:!ring-0 data-[invalid]:text-red-500"
+		/>
+	</UInputTag>
 </section>

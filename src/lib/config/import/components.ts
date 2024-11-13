@@ -2,7 +2,7 @@
 export { default as UAlert } from '../../components/application/alert/alert.svelte';
 export { default as UCombobox } from '../../components/application/combobox/combobox.svelte';
 export { default as UCommandMenu } from '../../components/application/command/menu.svelte';
-export { default as UDashboard } from '../../components/application/dashboard/dashboard.svelte';
+export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
 export { default as UFieldset } from '../../components/application/fieldset/fieldset.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
 export { default as UHeadbar } from '../../components/application/headbar/headbar.svelte';

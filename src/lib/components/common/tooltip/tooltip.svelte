@@ -11,10 +11,15 @@
 		states
 	} = createTooltip({
 		positioning: props['floaf'],
-		openDelay: 0,
-		closeDelay: 0,
-		forceVisible: true,
-		group: true
+		openDelay: props.delay?.open,
+		closeDelay: props.delay?.close,
+		arrowSize: props['arrow-size'],
+		escapeBehavior: props['escape-behavior'],
+		portal: props['portal'],
+		closeOnPointerDown: props['close-pointer-down'],
+		disableHoverableContent: props['disable-hover'],
+		forceVisible: props['force-visible'],
+		group: props['group']
 	});
 
 	const sync = createSync(states);
@@ -31,6 +36,8 @@
 {#if value}
 	<div data-ui="tooltip" {...props} use:melt={$content} class={merge('relative z-10', props.class)}>
 		{@render props.content?.()}
-		<div use:melt={$arrow}></div>
+		{#if props['arrow-size']}
+			<div use:melt={$arrow}></div>
+		{/if}
 	</div>
 {/if}

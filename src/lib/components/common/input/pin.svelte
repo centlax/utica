@@ -23,6 +23,7 @@
 	setContext('melt', input);
 
 	/** Styles */
+	setContext('input', input);
 </script>
 
 <div use:melt={$root} class="flex items-center gap-2 {props.class}" {...props}>
