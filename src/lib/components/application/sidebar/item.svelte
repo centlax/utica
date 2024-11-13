@@ -6,6 +6,6 @@
 	let { ...props }: SidebarItemProps = $props();
 </script>
 
-<svelte:element this={props.href ? 'a' : 'button'}> 
-    {@render props.children?.()}
+<svelte:element this={props.href ? 'a' : 'button'}>
+	{@render props.children?.()}
 </svelte:element>

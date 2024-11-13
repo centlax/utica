@@ -4,8 +4,7 @@
 
 <div class="space-y-2 py-6">
 	<div class="-mx-3">
-		<UAccordion>
-			<UAccordionItem>
+		
 				<button
 					type="button"
 					class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
@@ -28,7 +27,6 @@
 					</svg>
 				</button>
 
-				{#snippet content()}
 					<!-- 'Product' sub-menu, show/hide based on menu state. -->
 					<div class="mt-2 space-y-2" id="disclosure-1">
 						<a
@@ -67,9 +65,7 @@
 							>Contact sales</a
 						>
 					</div>
-				{/snippet}
-			</UAccordionItem>
-		</UAccordion>
+		
 	</div>
 	<a
 		href="/"
