@@ -29,7 +29,7 @@
 {@render props.children?.()}
 
 {#if value}
-	<div {...props} use:melt={$content} class={merge('relative z-10', props.class)}>
+	<div data-ui="tooltip" {...props} use:melt={$content} class={merge('relative z-10', props.class)}>
 		{@render props.content?.()}
 		<div use:melt={$arrow}></div>
 	</div>

@@ -1,12 +1,5 @@
 <script lang="ts">
-	import {
-		UAccordion,
-		UAccordionItem,
-		UAvatar,
-		UAvatarGroup,
-		UHeader,
-		UPaginate
-	} from '$lib/index.js';
+	import { UAccordion, UAccordionItem, UHeader, UPaginate } from '$lib/index.js';
 	import type { Link } from '$lib/types/link.js';
 	/** transition */
 
@@ -62,7 +55,7 @@
 	];
 </script>
 
-<section class="flex h-screen w-screen flex-col overflow-hidden bg-white px-8">
+<section class="flex h-screen w-screen flex-col overflow-hidden bg-white px-8 text-gray-900">
 	<UHeader {links}>
 		{#snippet logo()}
 			<a href="/" class="-m-1.5 p-1.5">
@@ -88,10 +81,4 @@
 			</UAccordionItem>
 		{/each}
 	</UAccordion>
-
-	<UAvatarGroup>
-		<UAvatar src="https://github.com/benjamincanac.png" alt="Benjamin Canac" />
-		<UAvatar src="https://github.com/romhml.png" alt="Romain Hamel" />
-		<UAvatar src="https://github.com/noook.png" alt="Neil Richter" />
-	</UAvatarGroup>
 </section>

@@ -29,7 +29,6 @@ export { default as UButton } from '../../components/common/button/button.svelte
 export { default as UCalendar } from '../../components/common/calendar/calendar.svelte';
 export { default as UCard } from '../../components/common/card/card.svelte';
 export { default as UCheckbox } from '../../components/common/checkbox/checkbox.svelte';
-export { default as UCheckboxGroup } from '../../components/common/checkbox/group.svelte';
 export { default as UContainer } from '../../components/common/container/container.svelte';
 export { default as UDropdown } from '../../components/common/dropdown/dropdown.svelte';
 export { default as UInputDate } from '../../components/common/input/date.svelte';
@@ -56,6 +55,7 @@ export { default as UHeaderAside } from '../../components/website/header/aside.s
 export { default as UHeader } from '../../components/website/header/header.svelte';
 export { default as UHeaderItem } from '../../components/website/header/item.svelte';
 export { default as UHeaderMenu } from '../../components/website/header/menu.svelte';
+export { default as UIcon } from '../../components/website/icon/icon.svelte';
 export { default as ULabel } from '../../components/website/label/label.svelte';
 export { default as UPopover } from '../../components/website/popover/popover.svelte';
 export { default as UPriceCard } from '../../components/website/price/card.svelte';

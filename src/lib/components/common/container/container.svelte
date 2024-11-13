@@ -6,6 +6,6 @@
 	/** Styles */
 </script>
 
-<div {...props}>
+<div data-ui="container" {...props}>
 	{@render props.children()}
 </div>

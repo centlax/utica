@@ -22,6 +22,7 @@
 </script>
 
 <div
+	data-ui="toast"
 	use:portal
 	class="fixed right-0 top-0 z-50 m-4 flex flex-col items-end gap-2 md:bottom-0 md:top-auto"
 >

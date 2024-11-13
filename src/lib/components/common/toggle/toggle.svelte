@@ -13,6 +13,6 @@
 	/** Styles */
 </script>
 
-<span use:melt={$action} {...props}>
+<span data-ui="toggle" use:melt={$action} {...props}>
 	{@render props.children()}
 </span>

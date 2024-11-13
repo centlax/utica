@@ -13,4 +13,5 @@ export const avatarGroup = styles;
 type Props = HTMLAttributes<HTMLDivElement>;
 export interface AvatarGroupProps extends Props {
 	children?: Snippet;
+	max?: number;
 }

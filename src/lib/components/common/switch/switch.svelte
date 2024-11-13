@@ -25,7 +25,7 @@
 	});
 </script>
 
-<button {...props} use:melt={$root}>
+<button data-ui="switch" {...props} use:melt={$root}>
 	{#each bits as bit}
 		<span>
 			{#if bit === value}

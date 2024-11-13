@@ -17,7 +17,7 @@
 	/* Styles */
 </script>
 
-<div {...props} use:melt={$item(id)}>
+<div data-ui="accordion-item" {...props} use:melt={$item(id)}>
 	<div role="button" use:melt={$trigger(id)}>
 		{@render props.children?.()}
 	</div>

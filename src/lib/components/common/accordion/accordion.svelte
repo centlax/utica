@@ -22,6 +22,6 @@
 	setContext('selected', isSelected);
 </script>
 
-<div {...props} use:melt={$root}>
+<div data-ui="accordion" {...props} use:melt={$root}>
 	{@render props.children?.()}
 </div>

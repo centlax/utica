@@ -8,6 +8,6 @@
 	/** Styles  */
 </script>
 
-<svelte:element this={props.href ? 'a' : 'button'}>
+<svelte:element this={props.href ? 'a' : 'button'} data-ui="button">
 	{@render props.children?.()}
 </svelte:element>

@@ -3,6 +3,7 @@
 	import { createAvatar, melt } from '@melt-ui/svelte';
 	import type { AvatarProps } from './avatar.js';
 	import { fade } from 'svelte/transition';
+	import { getContext } from 'svelte';
 
 	/** Props */
 	let { ...props }: AvatarProps = $props();
@@ -16,12 +17,22 @@
 		loadingStatus: props['loading-status']
 	});
 	/** Styles */
+
+	/** Calculate zIndex based on group context */
+	const value: any = getContext('counter');
+	const max: any = getContext('max');
+	value.count++;
+	let current = value.count;
+	let zIndex = (current - 1) * -10;
 </script>
 
 <span
 	data-ui="avatar"
+	style="z-index: {zIndex};"
 	{...props}
-	class="flex  size-10 items-center justify-center rounded-full bg-neutral-100 ring-2 ring-white"
+	class="{current > max
+		? 'hidden'
+		: ''} flex size-6 items-center justify-center rounded-full bg-neutral-100 ring-2 ring-white"
 >
 	{#if $loadingStatus === 'loaded'}
 		<img

@@ -17,7 +17,7 @@
 	}
 </script>
 
-<div class="max-w-sm" use:melt={$calendar}>
+<div data-ui="calendar" class="max-w-sm" use:melt={$calendar}>
 	<header>
 		<button use:melt={$prevButton}> Back </button>
 		<div use:melt={$heading}>
