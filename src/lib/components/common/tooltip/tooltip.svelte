@@ -2,7 +2,7 @@
 	import { useToggle } from '$lib/composables/toggle.js';
 	import { createTooltip, melt, createSync } from '@melt-ui/svelte';
 	import type { TooltipProps } from './tooltip.js';
-	import { merge } from '$pkgs/ui/index.js';
+	import { merge } from '$lib/utils/merge.js';
 
 	let { value = $bindable(false), ...props }: TooltipProps = $props();
 

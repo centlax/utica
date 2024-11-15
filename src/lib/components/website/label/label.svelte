@@ -1,6 +1,7 @@
 <script lang="ts">
 	/** Imports */
-	import type { label, LabelProps } from './label.js';
+	import type { LabelProps } from './label.js';
+	import { Label } from 'formsnap';
 
 	/** Props */
 	let { ...props }: LabelProps = $props();
@@ -8,7 +9,7 @@
 	/** Styles */
 </script>
 
-<label {...props}>
+<Label {...props}>
 	{#if props.children}
 		{@render props.children()}
 	{:else}
@@ -23,4 +24,4 @@
 			</svelte:element>
 		{/if}
 	{/if}
-</label>
+</Label>

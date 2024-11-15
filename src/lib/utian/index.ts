@@ -1,35 +1,7 @@
-import { twJoin, twMerge } from 'tailwind-merge';
+import { merge } from '$lib/utils/merge.js';
 import type { DeepStyles, Utility } from './types.js';
-import clsx from 'clsx';
-import type { ClassValue } from 'clsx';
-/**
- * Merges multiple class lists into a single class string.
- *
- * @param classLists - The class lists to merge.
- * @returns The merged class string.
- *
- * The function joins every string from index 0 to (n-2) with twJoin,
- * then includes the last string separately in the twMerge.
- */
 
-export function merge(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs));
-}
-
-/**
- * Converts multiple objects into a single string by concatenating non-object property values.
- * If the input is not an object, it returns an empty string.
- * @param {...Object} objs The objects to be converted into a string.
- * @returns A string representation of the non-object properties of the input objects.
- */
-export function stringify(...objs: Utility[]): string {
-	return objs
-		.flatMap((obj) =>
-			typeof obj === 'object' ? Object.values(obj).filter((value) => typeof value !== 'object') : []
-		)
-		.join(' ');
-}
-
+// Array of allowed keys in the ClassType interface
 const classTypeKeys = new Set([
 	'layout',
 	'flex',
@@ -53,61 +25,74 @@ const classTypeKeys = new Set([
 ]);
 
 /**
+ * Converts multiple objects into a single string by concatenating non-object property values.
+ * If the input is not an object, it returns an empty string.
+ * @param {...Object} objs The objects to be converted into a string.
+ * @returns A string representation of the non-object properties of the input objects.
+ */
+export function stringify(...objs: Utility[]): string {
+	return objs
+		.flatMap((obj) =>
+			typeof obj === 'object' ? Object.values(obj).filter((value) => typeof value !== 'object') : []
+		)
+		.join(' ');
+}
+
+/**
  * Merges two class strings, conditionally overriding the older class with the newer one.
  * @param {string} older The existing class string.
  * @param {string} newer The new class string to merge.
  * @param {boolean} override Whether the new class should override the older one.
  * @returns The merged class string.
  */
-function overrideMerge(older: string, newer: string, override: boolean): string {
-	return override ? newer : twJoin(older, newer);
+function overrideMerge(older: string, newer: string, override?: boolean): string {
+	return override ? newer : merge(older, newer);
 }
 
 /**
- * Recursively processes a style object, converting it into usable class strings and CSS objects.
- * If `styles` has a root object, it will merge the stringified root with the classer string.
- * @param {string | DeepStyles<T>} styles The styles object or string.
- * @param {boolean} override Whether the newer styles should override existing ones.
- * @returns An object with `css` and `classer` properties.
+ * Merges the given styles and oclass objects.
+ * @template T - The type of the styles object.
+ * @param {T} styles - The base styles object.
+ * @param {string | DeepStyles<T>} oclass - The additional styles object or a string class.
+ * @param {boolean} override - Flag indicating whether to override styles.
+ * @returns {{ css: T; classer: string }} - The merged styles and class string.
  */
 export function useUI<T extends Record<string, unknown>>(
-	styles?: string | DeepStyles<T>,
-	override?: boolean
+	styles: T,
+	oclass: string | undefined | DeepStyles<T>,
+	override: boolean | undefined
 ): { css: T; classer: string } {
 	let classer: string = '';
-	const css = {} as T;
+	const css: T = { ...styles };
 
-	if (typeof styles === 'string') {
-		classer = styles;
+	if (typeof oclass === 'string') {
+		classer = oclass;
 		return { css, classer };
 	}
 
-	// Iterate over the keys in the styles object
-	for (const key in styles) {
-		if (Object.prototype.hasOwnProperty.call(styles, key)) {
-			const styleValue = styles[key];
+	for (const key in oclass) {
+		if (Object.prototype.hasOwnProperty.call(oclass, key)) {
+			const stylesKid = styles[key];
+			const oclassKid = oclass[key];
 
-			// Check if the style value is an object (possibly nested)
-			if (typeof styleValue === 'object' && !Array.isArray(styleValue) && styleValue !== null) {
-				// Recursively call useUI on nested objects and assign the result
-				(css as Record<string, unknown>)[key] = useUI(
-					styleValue as DeepStyles<Record<string, unknown>>,
+			if (
+				typeof stylesKid === 'object' &&
+				stylesKid !== null &&
+				typeof oclassKid === 'object' &&
+				oclassKid !== null
+			) {
+				css[key] = useUI(
+					stylesKid as Record<string, unknown>,
+					oclassKid as DeepStyles<typeof stylesKid>,
 					override
-				).css;
-			} else if (typeof styleValue === 'string' && classTypeKeys.has(key)) {
-				// If it's a string and in classTypeKeys, merge the class values
-				(css as Record<string, unknown>)[key] = overrideMerge(
-					styleValue,
-					styleValue,
-					override || false
-				);
+				).css as T[Extract<keyof T, string>];
+			} else if (typeof oclassKid === 'string' && classTypeKeys.has(key)) {
+				css[key] = overrideMerge(stylesKid as string, oclassKid, override) as T[Extract<
+					keyof T,
+					string
+				>];
 			}
 		}
-	}
-
-	// If the styles object contains a `root` object, process and merge it with classer
-	if (styles && 'root' in styles && typeof styles.root === 'object') {
-		classer = merge(stringify(styles.root as Utility), classer);
 	}
 
 	return { css, classer };

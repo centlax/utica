@@ -64,7 +64,7 @@ export const inputPin = styles;
 
 /** Props */
 type Props = HTMLInputAttributes;
-export interface InputPinProps extends Props {
-	children: Snippet;
+export interface InputProps extends Props {
+	children?: Snippet;
 	as?: string;
 }

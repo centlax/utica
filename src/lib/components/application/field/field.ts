@@ -1,5 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
+import { type ControlAttrs } from 'formsnap';
+
 /**
  *  '[&>[data-slot=label]+[data-slot=control]]:mt-3',
         '[&>[data-slot=label]+[data-slot=description]]:mt-1',
@@ -35,4 +37,5 @@ export interface FieldProps extends HTMLAttributes<HTMLFieldSetElement> {
 	href?: HTMLAnchorAttributes['href'];
 	error?: Snippet;
 	help?: Snippet | string;
+	attrs?: ControlAttrs;
 }

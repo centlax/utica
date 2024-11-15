@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { melt } from '@melt-ui/svelte';
 	import { getContext } from 'svelte';
-	let { ...props } = $props();
+	import type { InputProps } from './input.js';
+	import type { ControlAttrs } from 'formsnap';
+	let { value = $bindable(), ...props }: InputProps = $props();
 
-	const input: any = getContext('input');
+	let input: any = getContext('input');
+	let attrs: ControlAttrs = getContext('attrs');
 </script>
 
-<input
-	use:melt={$input}
-	class="size-12 rounded-md bg-white text-center text-lg text-sky-900 shadow-sm"
-	{...props}
-/>
+{#if $input}
+	<input {...attrs} bind:value {...props} use:melt={$input} />
+{:else}
+	<input {...attrs} bind:value {...props} />
+{/if}

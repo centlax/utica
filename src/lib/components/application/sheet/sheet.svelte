@@ -2,7 +2,7 @@
 	import { createDialog, melt, createSync } from '@melt-ui/svelte';
 	import { fade, fly, type FlyParams } from 'svelte/transition';
 	import { useToggle } from '$lib/composables/toggle.js';
-	import { merge } from '$pkgs/ui/index.js';
+	import { merge } from '$lib/utils/merge.js';
 	import type { SheetProps } from './sheet.js';
 
 	let { value = $bindable(false), ...props }: SheetProps = $props();

@@ -1,4 +1,6 @@
 /** Imports */
+import type { BaseProps } from '$lib/types/prop.js';
+import type { Styles } from '$lib/utian/types.js';
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
@@ -16,6 +18,7 @@ const styles = {
 		typography: 'font-semibold'
 	},
 	is: {},
+
 	opt: {
 		size: {
 			xs: {
@@ -90,9 +93,7 @@ const styles = {
 					typography: 'text-gray-900 dark:text-white'
 				}
 			},
-			subtle: {
-
-			},
+			subtle: {},
 			ghost: {
 				color: {
 					background: 'data-events:hover:bg-color-50 dark:data-events:hover:bg-color-950',
@@ -104,18 +105,16 @@ const styles = {
 					border: `focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500`,
 					typography: 'text-gray-900 dark:text-white'
 				}
-			},
-
+			}
 		}
 	}
-};
+} satisfies Styles;
 
 export const button = styles;
 
-type HTMLButtunAnchorAttributes = HTMLButtonAttributes & HTMLAnchorAttributes;
-export interface ButtonProps extends HTMLButtunAnchorAttributes {
+type Props = Omit<HTMLButtonAttributes & HTMLAnchorAttributes, 'class'>;
+export interface ButtonProps extends BaseProps<typeof button>, Props {
 	label?: string;
 	children?: Snippet;
-	variant?: keyof typeof styles.opt.variant
-	
+	variant?: keyof typeof styles.opt.variant;
 }

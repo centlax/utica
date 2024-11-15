@@ -1,13 +1,13 @@
-<script lang="ts">
+<script lang="ts" generics="T extends Record<string, unknown>">
 	/** Imports */
 	import { type FormProps } from './form.js';
+	import { setContext } from 'svelte';
 
 	/** Props */
-	let { ...props }: FormProps = $props();
+	let { ...props }: FormProps<T> = $props();
+	setContext('schema', props.schema);
 </script>
 
-<form {...props}>
-	{#if props.children}
-		{@render props.children()}
-	{/if}
+<form use:props.use {...props}>
+	{@render props.children?.()}
 </form>
