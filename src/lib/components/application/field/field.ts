@@ -1,6 +1,13 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
-
+/**
+ *  '[&>[data-slot=label]+[data-slot=control]]:mt-3',
+        '[&>[data-slot=label]+[data-slot=description]]:mt-1',
+        '[&>[data-slot=description]+[data-slot=control]]:mt-3',
+        '[&>[data-slot=control]+[data-slot=description]]:mt-3',
+        '[&>[data-slot=control]+[data-slot=error]]:mt-3',
+        '[&>[data-slot=label]]:font-medium'
+ */
 /** Styles */
 const styles = {
 	root: {
@@ -21,7 +28,7 @@ const styles = {
 
 export const fieldset = styles;
 
-export interface FieldsetProps extends HTMLAttributes<HTMLFieldSetElement> {
+export interface FieldProps extends HTMLAttributes<HTMLFieldSetElement> {
 	children?: Snippet;
 	label?: Snippet;
 	hint?: Snippet | string;

@@ -1,6 +1,6 @@
 /** Imports */
 
-import type { Styles } from '$pkgs/ui/utian/types.js';
+import type { Styles } from '$lib/utian/types.js';
 import type { CreatePopoverProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';

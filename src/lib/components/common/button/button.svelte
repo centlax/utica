@@ -8,6 +8,10 @@
 	/** Styles  */
 </script>
 
-<svelte:element this={props.href ? 'a' : 'button'} data-ui="button">
-	{@render props.children?.()}
+<svelte:element {...props} this={props.href ? 'a' : 'button'} data-ui="button">
+	{#if props.children}
+		{@render props.children()}
+	{:else}
+		{props.label}
+	{/if}
 </svelte:element>

@@ -1,6 +1,6 @@
 /** Imports */
 import type { Link } from '$lib/types/link.js';
-import type { Styles } from '$pkgs/ui/utian/types.js';
+import type { Styles } from '$lib/utian/types.js';
 import type { Snippet } from 'svelte';
 
 /** Styles */

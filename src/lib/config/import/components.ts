@@ -3,7 +3,7 @@ export { default as UAlert } from '../../components/application/alert/alert.svel
 export { default as UCombobox } from '../../components/application/combobox/combobox.svelte';
 export { default as UCommandMenu } from '../../components/application/command/menu.svelte';
 export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
-export { default as UFieldset } from '../../components/application/fieldset/fieldset.svelte';
+export { default as UField } from '../../components/application/field/field.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
 export { default as UHeadbar } from '../../components/application/headbar/headbar.svelte';
 export { default as UMenuItem } from '../../components/application/menu/item.svelte';
@@ -14,6 +14,7 @@ export { default as UNotificate } from '../../components/application/notificate/
 export { default as UPaginate } from '../../components/application/paginate/paginate.svelte';
 export { default as URadio } from '../../components/application/radio/radio.svelte';
 export { default as USheet } from '../../components/application/sheet/sheet.svelte';
+export { default as USidebarItem } from '../../components/application/sidebar/item.svelte';
 export { default as USidebar } from '../../components/application/sidebar/sidebar.svelte';
 export { default as UTable } from '../../components/application/table/table.svelte';
 export { default as UTextarea } from '../../components/application/textarea/textarea.svelte';

@@ -1,5 +1,5 @@
 /** Imports */
-import type { Styles } from '$pkgs/ui/utian/types.js';
+import type { Styles } from '$lib/utian/types.js';
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
