@@ -1,26 +1,20 @@
+import type { TransformKeysToKebab } from '$lib/types/utils.js';
 import type { Snippet } from 'svelte';
 import type { HTMLFormAttributes } from 'svelte/elements';
+import type { FormOptions } from 'sveltekit-superforms';
+import type { SuperValidated } from 'sveltekit-superforms/client';
 
 const styles = {};
 export const form = styles;
 
-type Props = HTMLFormAttributes;
-type OForm = Record<string, unknown>;
-export interface FormProps<T extends OForm> extends Props {
-	children?: Snippet;
-	schema?: T;
-	use?: any;
-}
+export type OForm = Record<string, unknown>;
+type BaseAttributes = Omit<HTMLFormAttributes, 'id'>;
 
-/* export interface FormProps<T extends OForm> extends Props {
+export interface BaseFormProps<T extends OForm> extends BaseAttributes {
 	children?: Snippet;
-	schema?: FormSchema<T>;
-	state?: Partial<T>;
-	validate?: (state: Partial<T>) => Promise<FormError[]> | FormError[];
-	'validate-on'?: FormInputEvents[];
-	disabled?: boolean;
-	on?: string;
-	'on-submit'?:
-		| ((event: FormSubmitEvent<T>) => void | Promise<void>)
-		| (() => void | Promise<void>);
-} */
+	schema: SuperValidated<T>;
+	form?: any;
+	//state: SuperFormData<OForm>;
+}
+type F = BaseFormProps<OForm> & FormOptions;
+export type FormProps = TransformKeysToKebab<F>;

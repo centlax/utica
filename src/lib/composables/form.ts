@@ -10,42 +10,51 @@ import {
 } from 'sveltekit-superforms';
 
 type OForm = Record<string, unknown>;
-export function useForm<T extends OForm>(schema: SuperValidated<T>, options?: FormOptions) {
+
+export function useForm<T extends OForm, M = any, In extends Record<string, unknown> = T>(
+	schema: SuperValidated<T, M, In>,
+	options?: FormOptions<T, M, In>
+) {
 	const proxy = superForm(schema, options);
+
 	return {
-		state: proxy.form,
 		proxy,
+		state: proxy.form,
+		constraints: proxy.constraints,
 		errors: proxy.errors,
 		enhance: proxy.enhance,
 		message: proxy.message
 	};
 }
 
-export function ctxForm() {
-	type Proxy = SuperForm<Record<string, unknown>, any>;
-	function set(proxy: Proxy) {
+export function ctxForm<T extends OForm, M = any, In extends Record<string, unknown> = T>() {
+	type Proxy = SuperForm<T, M>;
+
+	function set(proxy?: Proxy) {
 		setContext('proxy', proxy);
 	}
+
 	function get() {
 		return getContext<Proxy>('proxy');
 	}
+
 	return {
 		set,
 		get
 	};
 }
 
-export function ctxField<T extends OForm>() {
-	type Proxy = FormFieldProxy<
-		FormPathType<Record<string, unknown>, FormPathLeaves<T>>,
-		FormPathLeaves<T>
-	>;
+export function ctxField<T extends OForm, M = any, In extends Record<string, unknown> = T>() {
+	type Proxy = FormFieldProxy<FormPathType<T, FormPathLeaves<T>>, FormPathLeaves<T>>;
+
 	function set(proxy: Proxy) {
 		setContext('proxy', proxy);
 	}
+
 	function get() {
 		return getContext<Proxy>('proxy');
 	}
+
 	return {
 		set,
 		get

@@ -18,8 +18,6 @@
 <label>
 	{name}<br />
 
-	
-	<slot/>
-
+	<slot />
 </label>
 {#if $errors}<span class="invalid">{$errors}</span>{/if}

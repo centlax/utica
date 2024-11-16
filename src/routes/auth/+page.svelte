@@ -1,41 +1,32 @@
 <script lang="ts">
 	import { useForm } from '$lib/composables/form.js';
-	import { UForm, UField, ULabel, UFormDebug, UInput } from '$lib/index.js';
-	import { fieldProxy, formFieldProxy, superForm } from 'sveltekit-superforms';
-	export let data;
+	import { UForm, UField, UFormDebug, UInput, ULabel, UButton, UAlert } from '$lib/index.js';
+	import { superForm, type SuperForm } from 'sveltekit-superforms';
 
-	const { proxy, state, errors, enhance, message } = useForm(data.form, {
+	export let data;
+	const { proxy, state, errors, message } = useForm(data.form, {
 		resetForm: false,
 		clearOnSubmit: 'none'
 	});
 </script>
 
-<UForm {state} {proxy} method="POST" use={enhance}>
+<UAlert>
 	<h2>Size</h2>
+	{#if $message}<p>{$message}</p>{/if}
+</UAlert>
 
+<UForm schema={data.form} method="POST">
 	<UField name="name">
-		<UInput/>
+		<ULabel>Name</ULabel>
+		<UInput bind:value={$state.name} />
 	</UField>
 
 	<UField name="email">
-		<input bind:value={$state.email} name="scoops" />
+		<ULabel>Email address</ULabel>
+		<UInput bind:value={$state.email} />
 	</UField>
 
-	{#if $message}<p>{$message}</p>{/if}
-	<button>Submit</button>
+	<UButton>Submit</UButton>
 </UForm>
 
-<p class="info">
-	<a href="https://svelte.dev/tutorial/group-inputs" target="_blank"
-		>Original code from Svelte documentation</a
-	>
-</p>
-
-<UFormDebug data={$state} />
-
-<style>
-	.info {
-		border-top: 1px solid gray;
-		margin-top: 4rem;
-	}
-</style>
+<UFormDebug data={proxy.form} />
