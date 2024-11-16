@@ -1,34 +1,25 @@
-<script lang="ts" module>
+<script lang="ts" context="module">
 	type T = Record<string, unknown>;
 </script>
 
 <script lang="ts" generics="T extends Record<string, unknown>">
-	import { getContext, setContext, type Snippet } from 'svelte';
-	import { formFieldProxy } from 'sveltekit-superforms';
-	import type { SuperForm, FormPathLeaves } from 'sveltekit-superforms';
+	import { ctxField, ctxForm } from '$lib/composables/form.js';
 
-	interface Props {
-		name: FormPathLeaves<T>;
-		children: Snippet
-	}
+	import { formFieldProxy, type FormPathLeaves } from 'sveltekit-superforms';
 
-	let { ...props }: Props = $props();
-
-	let superform: SuperForm<T> = getContext('superform');
-	const { value, errors, constraints } = formFieldProxy(superform, props.name as FormPathLeaves<T>);
-	setContext('for', props.name);
+	export let name: FormPathLeaves<T>;
+	const ctx = ctxForm();
+	const field = formFieldProxy(ctx.get(), name);
+	const { value, errors, constraints } = field;
+	const _ctxField = ctxField();
+	_ctxField.set(field);
 </script>
 
-{@render props.children?.()}
-<div {...props} class="control">
-	<input
-		name={props.name}
-		type="text"
-		bind:value={$value}
-		{...$constraints}
-		required={false}
-	/>
-</div>
-{#if $errors}
-	<p class="help is-danger">{$errors}</p>
-{/if}
+<label>
+	{name}<br />
+
+	
+	<slot/>
+
+</label>
+{#if $errors}<span class="invalid">{$errors}</span>{/if}

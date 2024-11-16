@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { melt } from '@melt-ui/svelte';
-	import { getContext } from 'svelte';
 	import type { InputProps } from './input.js';
-
+	import { ctxField } from '$lib/composables/form.js';
 	let { value = $bindable(), ...props }: InputProps = $props();
 
-	let input: any = getContext('input');
+	const ctx = ctxField();
+	const {value: _v, errors, constraints } = ctx.get();
 </script>
 
-<input bind:value {...props} use:melt={$input} />
+<input
+	aria-invalid={$errors ? 'true' : undefined}
+	bind:value={$_v}
+	{...$constraints}
+	{...props}
+/>
