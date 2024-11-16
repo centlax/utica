@@ -5,7 +5,6 @@ export { default as UCommandMenu } from '../../components/application/command/me
 export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
 export { default as UField } from '../../components/application/field/field.svelte';
 export { default as UFormDebug } from '../../components/application/form/debug.svelte';
-export { default as UFormField } from '../../components/application/form/field.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
 export { default as UHeadbar } from '../../components/application/headbar/headbar.svelte';
 export { default as UMenuItem } from '../../components/application/menu/item.svelte';

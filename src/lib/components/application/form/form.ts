@@ -1,7 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { ActionReturn } from 'svelte/action';
 import type { HTMLFormAttributes } from 'svelte/elements';
-import type { SuperForm } from 'sveltekit-superforms';
 
 const styles = {};
 export const form = styles;
@@ -10,7 +8,7 @@ type Props = HTMLFormAttributes;
 type OForm = Record<string, unknown>;
 export interface FormProps<T extends OForm> extends Props {
 	children?: Snippet;
-	schema?: SuperForm<T>;
+	schema?: T;
 	use?: any;
 }
 

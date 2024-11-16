@@ -29,8 +29,6 @@
 	toogle.set(states.open, trigger, close);
 </script>
 
-{@render props.children?.()}
-
 {#if value}
 	<div class="" use:melt={$portalled}>
 		<div

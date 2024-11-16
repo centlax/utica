@@ -1,15 +1,16 @@
 <script lang="ts">
+	import { getContext } from 'svelte';
 	/** Imports */
-	import type { LabelProps } from './label.js';
-	import { Label } from 'formsnap';
+	import type { label, LabelProps } from './label.js';
 
 	/** Props */
 	let { ...props }: LabelProps = $props();
 
 	/** Styles */
+	let name: string = getContext('for');
 </script>
 
-<Label {...props}>
+<label {...props} for={props.for || name}>
 	{#if props.children}
 		{@render props.children()}
 	{:else}
@@ -24,4 +25,4 @@
 			</svelte:element>
 		{/if}
 	{/if}
-</Label>
+</label>

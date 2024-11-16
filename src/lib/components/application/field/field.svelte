@@ -1,25 +1,34 @@
-<script lang="ts">
-	import { setContext } from 'svelte';
-	/** Imports */
-	import { type FieldProps } from './field.js';
-	/** Props */
-	let { ...props }: FieldProps = $props();
+<script lang="ts" module>
+	type T = Record<string, unknown>;
 </script>
 
-<fieldset {...props}>
-	{@render props.children?.()}
+<script lang="ts" generics="T extends Record<string, unknown>">
+	import { getContext, setContext, type Snippet } from 'svelte';
+	import { formFieldProxy } from 'sveltekit-superforms';
+	import type { SuperForm, FormPathLeaves } from 'sveltekit-superforms';
 
-	{#if props.error}
-		{#if typeof props.error === 'string'}
-			<p>{props.error}</p>
-		{:else}
-			{@render props.error()}
-		{/if}
-	{:else if props.help}
-		{#if typeof props.help === 'string'}
-			<p>{props.help}</p>
-		{:else}
-			{@render props.help()}
-		{/if}
-	{/if}
-</fieldset>
+	interface Props {
+		name: FormPathLeaves<T>;
+		children: Snippet
+	}
+
+	let { ...props }: Props = $props();
+
+	let superform: SuperForm<T> = getContext('superform');
+	const { value, errors, constraints } = formFieldProxy(superform, props.name as FormPathLeaves<T>);
+	setContext('for', props.name);
+</script>
+
+{@render props.children?.()}
+<div {...props} class="control">
+	<input
+		name={props.name}
+		type="text"
+		bind:value={$value}
+		{...$constraints}
+		required={false}
+	/>
+</div>
+{#if $errors}
+	<p class="help is-danger">{$errors}</p>
+{/if}

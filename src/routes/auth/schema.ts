@@ -1,15 +1,11 @@
 import { z } from 'zod';
 
-export const themes = ['light', 'dark'] as const;
-export const languages = ['en', 'es', 'fr'] as const;
-export const allergies = ['peanuts', 'dairy', 'gluten', 'soy', 'shellfish'] as const;
+export const registerSchema = z.object({
+	name: z.string().min(2, 'wkjrh'),
+	email: z.string().email()
+});
 
-export const schema = z.object({
-	email: z.string().email('Please enter a valid email.'),
-	password: z.string().min(8, 'Must be at least 8 characters'),
-	bio: z.string().optional(),
-	theme: z.enum(themes).default('light'),
-	language: z.enum(languages).default('en'),
-	marketingEmails: z.boolean().default(true),
-	allergies: z.array(z.enum(allergies))
+export const profileSchema = z.object({
+	name: z.string().min(2),
+	age: z.number().gte(16).default(18)
 });
