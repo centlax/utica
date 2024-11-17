@@ -1,4 +1,4 @@
-import { getContext, setContext } from 'svelte';
+import { getContext, hasContext, setContext } from 'svelte';
 import {
 	superForm,
 	type FormFieldProxy,
@@ -15,27 +15,18 @@ export function useForm<T extends OForm, M = any, In extends Record<string, unkn
 	schema: SuperValidated<T, M, In>,
 	options?: FormOptions<T, M, In>
 ) {
-	const proxy = superForm(schema, options);
-
-	return {
-		proxy,
-		state: proxy.form,
-		constraints: proxy.constraints,
-		errors: proxy.errors,
-		enhance: proxy.enhance,
-		message: proxy.message
-	};
+	return superForm(schema, options);
 }
 
 export function ctxForm<T extends OForm, M = any, In extends Record<string, unknown> = T>() {
-	type Proxy = SuperForm<T, M>;
+	type Form = SuperForm<T, M>;
 
-	function set(proxy?: Proxy) {
-		setContext('proxy', proxy);
+	function set(form?: any) {
+		setContext('form', form);
 	}
 
 	function get() {
-		return getContext<Proxy>('proxy');
+		return getContext<Form>('form');
 	}
 
 	return {
@@ -43,20 +34,31 @@ export function ctxForm<T extends OForm, M = any, In extends Record<string, unkn
 		get
 	};
 }
-
 export function ctxField<T extends OForm, M = any, In extends Record<string, unknown> = T>() {
 	type Proxy = FormFieldProxy<FormPathType<T, FormPathLeaves<T>>, FormPathLeaves<T>>;
 
-	function set(proxy: Proxy) {
+	function set(proxy: Proxy, name: string) {
 		setContext('proxy', proxy);
+		setContext('name', name);
 	}
 
 	function get() {
-		return getContext<Proxy>('proxy');
+		return {
+			proxy: getContext<Proxy>('proxy'),
+			name: getContext<string>('name')
+		};
+	}
+
+	function has() {
+		return {
+			proxy: hasContext('proxy'),
+			name: hasContext('name')
+		};
 	}
 
 	return {
 		set,
-		get
+		get,
+		has
 	};
 }

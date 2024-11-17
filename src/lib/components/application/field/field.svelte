@@ -1,23 +1,40 @@
-<script lang="ts" context="module">
-	type T = Record<string, unknown>;
+<script lang="ts">
+	import { ctxForm, ctxField } from '$lib/composables/form.js';
+	import { formFieldProxy } from 'sveltekit-superforms';
+	import type { FieldProps } from './field.js';
+
+	// Extract props with default value for name
+	let { name, ...props }: FieldProps = $props();
+
+	// Retrieve form context
+	const _form = ctxForm();
+	const form = _form.get();
+
+	// Set field in context
+	const proxy = formFieldProxy(form, name);
+	const field = ctxField();
+	field.set(proxy, name);
+
+	const { errors } = proxy;
 </script>
 
-<script lang="ts" generics="T extends Record<string, unknown>">
-	import { ctxField, ctxForm } from '$lib/composables/form.js';
-
-	import { formFieldProxy, type FormPathLeaves } from 'sveltekit-superforms';
-
-	export let name: FormPathLeaves<T>;
-	const ctx = ctxForm();
-	const field = formFieldProxy(ctx.get(), name);
-	const { value, errors, constraints } = field;
-	const _ctxField = ctxField();
-	_ctxField.set(field);
-</script>
-
-<label>
-	{name}<br />
-
-	<slot />
-</label>
-{#if $errors}<span class="invalid">{$errors}</span>{/if}
+<div {...props}>
+	{@render props.children?.()}
+	{#if props.error || $errors}
+		<p class="error">
+			{#if typeof props.error === 'string' || $errors}
+				{props.error || $errors}
+			{:else}
+				{@render props.error?.()}
+			{/if}
+		</p>
+	{:else}
+		<p class="help">
+			{#if typeof props.help === 'string'}
+				{props.help}
+			{:else}
+				{@render props.help?.()}
+			{/if}
+		</p>
+	{/if}
+</div>

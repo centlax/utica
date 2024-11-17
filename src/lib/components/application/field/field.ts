@@ -1,6 +1,5 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
-import { type ControlAttrs } from 'formsnap';
 
 /**
  *  '[&>[data-slot=label]+[data-slot=control]]:mt-3',
@@ -28,14 +27,14 @@ const styles = {
 	error: { typography: 'text-xs text-danger-500' }
 };
 
-export const fieldset = styles;
+export const field = styles;
 
-export interface FieldProps extends HTMLAttributes<HTMLFieldSetElement> {
+export interface FieldProps extends HTMLAttributes<HTMLDivElement> {
 	children?: Snippet;
 	label?: Snippet;
 	hint?: Snippet | string;
 	href?: HTMLAnchorAttributes['href'];
-	error?: Snippet;
+	error?: Snippet | string;
 	help?: Snippet | string;
-	attrs?: ControlAttrs;
+	name: string;
 }
