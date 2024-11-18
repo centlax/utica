@@ -1,25 +1,30 @@
 <script lang="ts">
 	/** Imports  */
+	import { useUI } from '$lib/utian/index.js';
+	import { stringify } from '$lib/utian/utils.js';
+	import { cn } from '$lib/utils/merge.js';
 	import { type ButtonProps, button } from './button.js';
-	import { useUI, stringify } from '$lib/utian/index.js';
-	import { merge } from '$lib/utils/merge.js';
 
 	/** Props  */
-	let { ...props }: ButtonProps = $props();
+	let { variant = 'solid', color = 'color', size = 'md', ...props }: ButtonProps = $props();
 
 	/** Styles  */
-	const { classer, css } = useUI(button, props.class, props.override);
+	const ui = useUI(button, props.class, props.override);
+	let css = $state({
+		button: stringify(
+			ui.root,
+			// @ts-ignore
+			ui.opt.variant[variant][color],
+			ui.opt.size[size]
+		)
+	});
 </script>
 
 <svelte:element
 	this={props.href ? 'a' : 'button'}
 	{...props}
-	class={merge(stringify(css.root))}
+	class={cn(css.button, ui.class)}
 	data-ui="button"
 >
-	{#if props.children}
-		{@render props.children()}
-	{:else}
-		{props.label}
-	{/if}
+	{@render props.children?.()}
 </svelte:element>

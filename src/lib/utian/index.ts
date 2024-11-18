@@ -1,5 +1,5 @@
-import { merge } from '$lib/utils/merge.js';
-import type { DeepStyles, Utility } from './types.js';
+import { cn } from '$lib/utils/merge.js';
+import type { DeepStyles } from './types.js';
 
 // Array of allowed keys in the ClassType interface
 const classTypeKeys = new Set([
@@ -25,20 +25,6 @@ const classTypeKeys = new Set([
 ]);
 
 /**
- * Converts multiple objects into a single string by concatenating non-object property values.
- * If the input is not an object, it returns an empty string.
- * @param {...Object} objs The objects to be converted into a string.
- * @returns A string representation of the non-object properties of the input objects.
- */
-export function stringify(...objs: Utility[]): string {
-	return objs
-		.flatMap((obj) =>
-			typeof obj === 'object' ? Object.values(obj).filter((value) => typeof value !== 'object') : []
-		)
-		.join(' ');
-}
-
-/**
  * Merges two class strings, conditionally overriding the older class with the newer one.
  * @param {string} older The existing class string.
  * @param {string} newer The new class string to merge.
@@ -46,7 +32,7 @@ export function stringify(...objs: Utility[]): string {
  * @returns The merged class string.
  */
 function overrideMerge(older: string, newer: string, override?: boolean): string {
-	return override ? newer : merge(older, newer);
+	return override ? newer : cn(older, newer);
 }
 
 /**
@@ -61,13 +47,12 @@ export function useUI<T extends Record<string, unknown>>(
 	styles: T,
 	oclass: string | undefined | DeepStyles<T>,
 	override: boolean | undefined
-): { css: T; classer: string } {
-	let classer: string = '';
-	const css: T = { ...styles };
+): T & { class?: string } {
+	const css: T & { class?: string } = { ...styles };
 
 	if (typeof oclass === 'string') {
-		classer = oclass;
-		return { css, classer };
+		css.class = oclass;
+		return css;
 	}
 
 	for (const key in oclass) {
@@ -95,5 +80,5 @@ export function useUI<T extends Record<string, unknown>>(
 		}
 	}
 
-	return { css, classer };
+	return css;
 }

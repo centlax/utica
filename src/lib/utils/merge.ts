@@ -11,6 +11,6 @@ import type { ClassValue } from 'clsx';
  * then includes the last string separately in the twMerge.
  */
 
-export function merge(...inputs: ClassValue[]) {
+export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }

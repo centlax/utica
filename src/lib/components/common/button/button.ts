@@ -1,12 +1,10 @@
 /** Imports */
 import type { BaseProps } from '$lib/types/prop.js';
 import type { Styles } from '$lib/utian/types.js';
+import { statify } from '$lib/utian/utils.js';
 import type { Snippet } from 'svelte';
 import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
-/**
- * states => default, hover, focused, disabeled
- */
 /** Styles */
 const styles = {
 	root: {
@@ -17,8 +15,6 @@ const styles = {
 		interactive: 'cursor-pointer disabled:cursor-not-allowed',
 		typography: 'font-semibold'
 	},
-	is: {},
-
 	opt: {
 		size: {
 			xs: {
@@ -56,7 +52,10 @@ const styles = {
 			solid: {
 				color: {
 					background: 'bg-color-500 data-events:hover:bg-color-600',
-					border: `ring-1 ring-inset ring-color-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-color-500`,
+					border: statify({
+						default: 'ring-1 ring-inset ring-color-400',
+						focus: `focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-color-500`
+					}),
 					typography: 'text-white',
 					effect: 'shadow-sm'
 				},
@@ -86,11 +85,6 @@ const styles = {
 					background: `bg-color-50 data-events:bg-color-100 dark:bg-color-950 data:events:hover:bg-color-900`,
 					border: `focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-color-500`,
 					typography: 'text-color-500'
-				},
-				'black-white': {
-					background: 'bg-gray-500/10 data-events:hover:bg-gray-500/20',
-					border: `focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500`,
-					typography: 'text-gray-900 dark:text-white'
 				}
 			},
 			subtle: {},
@@ -114,7 +108,8 @@ export const button = styles;
 
 type Props = Omit<HTMLButtonAttributes & HTMLAnchorAttributes, 'class'>;
 export interface ButtonProps extends BaseProps<typeof button>, Props {
-	label?: string;
 	children?: Snippet;
-	variant?: keyof typeof styles.opt.variant;
+	variant?: keyof typeof button.opt.variant;
+	color?: keyof typeof button.opt.variant.solid;
+	size?: keyof typeof button.opt.size;
 }

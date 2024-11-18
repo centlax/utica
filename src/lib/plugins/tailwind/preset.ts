@@ -1,4 +1,4 @@
-//import { getIconCollections, iconsPlugin } from '@egoist/tailwindcss-icons';
+import { getIconCollections, iconsPlugin } from '@egoist/tailwindcss-icons';
 import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors.js';
 import aspectRatio from '@tailwindcss/aspect-ratio';
@@ -50,11 +50,11 @@ export default function (): Partial<Config> {
 			typography,
 			containerQueries,
 			aspectRatio,
-			colorize
-			/* 	iconsPlugin({
+			colorize,
+			iconsPlugin({
 				collections: getIconCollections(['fluent']),
 				scale: 1.5
-			}) */
+			})
 		]
 	};
 }
