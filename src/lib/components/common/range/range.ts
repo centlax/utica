@@ -1,6 +1,8 @@
 /** Imports */
 
+import type { TransformKeysToKebab } from '$lib/types/utils.js';
 import type { Styles } from '$lib/utian/types.js';
+import type { CreateSliderProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
@@ -13,7 +15,9 @@ const styles = {
 export const range = styles;
 
 /** Props */
-type Props = HTMLAttributes<HTMLDivElement>;
-export interface RangeProps extends Props {
-	children: Snippet;
+type Props = Omit<HTMLAttributes<HTMLDivElement>, 'dir'>;
+type SliderProps = Omit<TransformKeysToKebab<CreateSliderProps>, 'value'>;
+export interface RangeProps extends Props, SliderProps {
+	children?: Snippet;
+	value?: number[];
 }

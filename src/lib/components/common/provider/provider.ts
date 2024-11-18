@@ -5,7 +5,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 /** Styles */
 
 /** Props */
-export interface ProvideProps extends HTMLAttributes<HTMLDivElement> {
+export interface ProviderProps extends HTMLAttributes<HTMLDivElement> {
 	children: Snippet;
 	toast?: Snippet;
 }

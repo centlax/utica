@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UTooltip, UToggle, UHeaderMenu } from '$lib/index.js';
+	import { UTooltip, UToggle } from '$lib/index.js';
 </script>
 
 <div class="relative">
@@ -28,7 +28,7 @@
 		</UToggle>
 
 		{#snippet content()}
-			<UHeaderMenu />
+			sdf
 		{/snippet}
 	</UTooltip>
 </div>

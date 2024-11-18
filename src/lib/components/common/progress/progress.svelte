@@ -1,20 +1,28 @@
 <script lang="ts">
-	import { createProgress, melt } from '@melt-ui/svelte';
+	/** Imports */
+	import { createProgress, createSync, melt } from '@melt-ui/svelte';
 	import { writable } from 'svelte/store';
+	import type { ProgressProps } from './progress.js';
 
-	const value = writable(30);
-
+	let { value = $bindable(30), ...props }: ProgressProps = $props();
 	const {
 		elements: { root },
-		options: { max }
+		options: { max },
+		states
 	} = createProgress({
-		value,
-		max: 100
+		max: props['max']
+	});
+
+	const sync = createSync(states);
+
+	$effect(() => {
+		// @ts-ignore
+		sync.value(value, (v) => (value = v));
 	});
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 	sleep(1000).then(() => {
-		value.set(75);
+		value = 75;
 	});
 </script>
 
@@ -22,6 +30,6 @@
 	<div
 		class="h-full w-full bg-[white] transition-transform duration-[660ms]
           ease-[cubic-bezier(0.65,0,0.35,1)]"
-		style={`transform: translateX(-${100 - (100 * ($value ?? 0)) / ($max ?? 1)}%)`}
+		style={`transform: translateX(-${100 - (100 * (value ?? 0)) / ($max ?? 1)}%)`}
 	></div>
 </div>

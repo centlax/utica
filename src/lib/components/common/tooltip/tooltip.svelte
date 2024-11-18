@@ -2,7 +2,7 @@
 	import { useToggle } from '$lib/composables/toggle.js';
 	import { createTooltip, melt, createSync } from '@melt-ui/svelte';
 	import type { TooltipProps } from './tooltip.js';
-	import { merge } from '$lib/utils/merge.js';
+	import { cn } from '$lib/utils/merge.js';
 
 	let { value = $bindable(false), ...props }: TooltipProps = $props();
 
@@ -34,7 +34,7 @@
 {@render props.children?.()}
 
 {#if value}
-	<div data-ui="tooltip" {...props} use:melt={$content} class={merge('relative z-10', props.class)}>
+	<div data-ui="tooltip" {...props} use:melt={$content} class={cn('relative z-10', props.class)}>
 		{@render props.content?.()}
 		{#if props['arrow-size']}
 			<div use:melt={$arrow}></div>

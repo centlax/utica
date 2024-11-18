@@ -19,7 +19,7 @@ const styles = {
 		spacing: 'px-4 py-5 sm:p-6'
 	},
 	south: {
-		spacing: 'px-4 py-4 sm:p-6'
+		spacing: 'px-4 py-4 sm:px-6'
 	}
 } satisfies Styles;
 export const card = styles;

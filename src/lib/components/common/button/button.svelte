@@ -26,5 +26,9 @@
 	class={cn(css.button, ui.class)}
 	data-ui="button"
 >
-	{@render props.children?.()}
+	{#if props.children}
+		{@render props.children?.()}
+	{:else}
+		{props.about}
+	{/if}
 </svelte:element>

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import '../app.css';
-	import { UProvide } from '$lib/index.js';
+	import { UProvider } from '$lib/index.js';
 	let { children } = $props();
 </script>
 
-<UProvide>
+<UProvider>
 	{@render children()}
-</UProvide>
+</UProvider>

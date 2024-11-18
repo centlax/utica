@@ -1,10 +1,10 @@
 <script lang="ts">
 	/** Imports */
 	import type { IconProps } from './icon.js';
+	import { cn } from '$lib/utils/merge.js';
 
 	/** Props */
-	let { ...props }: IconProps = $props();
-	/** Styles */
+	let { name, ...props }: IconProps = $props();
 </script>
 
-<span {...props} data-ui="icon"></span>
+<span data-ui="icon" {...props} class={cn(name, props.class)}></span>

@@ -1,13 +1,26 @@
 <script lang="ts">
-	import { createSlider, melt } from '@melt-ui/svelte';
+	import { createSlider, createSync, melt } from '@melt-ui/svelte';
+	import type { RangeProps } from './range.js';
+
+	let { value = $bindable(), ...props }: RangeProps = $props();
 
 	const {
-		elements: { root, range, thumbs }
+		elements: { root, range, thumbs },
+		states
 	} = createSlider({
-		defaultValue: [30],
-		min: 0,
-		max: 100,
-		step: 1
+		min: props['min'],
+		max: props['max'],
+		step: props['step'],
+		orientation: props['orientation'],
+		autoSort: props['auto-sort'],
+		dir: props['dir'],
+		disabled: props['disabled'],
+		defaultValue: props['default-value']
+	});
+	const sync = createSync(states);
+	$effect(() => {
+		// @ts-ignore
+		sync.value(value, (v) => (value = v));
 	});
 </script>
 

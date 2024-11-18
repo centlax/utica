@@ -1,12 +1,12 @@
 <script lang="ts">
 	/** Imports */
-	import { type ProvideProps } from './provide.js';
+	import { type ProviderProps } from './provider.js';
 	import { ModeWatcher } from 'mode-watcher';
 	import UToast from '../toast/toast.svelte';
 	import { fly } from 'svelte/transition';
 
 	/** Props */
-	let { ...props }: ProvideProps = $props();
+	let { ...props }: ProviderProps = $props();
 
 	/** Styles */
 </script>

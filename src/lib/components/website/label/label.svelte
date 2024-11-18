@@ -14,7 +14,7 @@
 	{#if props.children}
 		{@render props.children()}
 	{:else}
-		{props.text}
+		{props.about}
 	{/if}
 	{#if props.hint}
 		{#if typeof props.hint !== 'string'}

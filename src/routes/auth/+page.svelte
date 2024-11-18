@@ -21,12 +21,12 @@
 		<UInput autocomplete="email" type="email" bind:value={$state.email} />
 	</UField>
 
-	<UField name="bio">
+	<Field {form} name="bio">
 		<ULabel>Bio</ULabel>
 		<UTextarea bind:value={$state.bio} />
 		<Description>Tell us a bit about yourself.</Description>
 		<FieldErrors />
-	</UField>
+	</Field>
 
 	<Field {form} name="language">
 		<Control let:attrs>

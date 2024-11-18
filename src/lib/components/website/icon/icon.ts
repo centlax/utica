@@ -1,7 +1,7 @@
 /* Imports */
 import type { HTMLAttributes } from 'svelte/elements';
 
-/* Styles */
-
 /* Props */
-export type IconProps = HTMLAttributes<HTMLSpanElement>;
+export interface IconProps extends HTMLAttributes<HTMLSpanElement> {
+	name: string;
+}

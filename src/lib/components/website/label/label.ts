@@ -18,7 +18,6 @@ export const label = styles;
 /** Props */
 export interface LabelProps extends HTMLLabelAttributes {
 	children?: Snippet;
-	text?: string;
 	hint?: Snippet | string;
 	href?: HTMLAnchorAttributes['href'];
 }

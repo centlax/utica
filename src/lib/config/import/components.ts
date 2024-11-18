@@ -39,7 +39,7 @@ export { default as UInput } from '../../components/common/input/input.svelte';
 export { default as UInputPin } from '../../components/common/input/pin.svelte';
 export { default as UInputTag } from '../../components/common/input/tag.svelte';
 export { default as UProgress } from '../../components/common/progress/progress.svelte';
-export { default as UProvide } from '../../components/common/provide/provide.svelte';
+export { default as UProvider } from '../../components/common/provider/provider.svelte';
 export { default as URange } from '../../components/common/range/range.svelte';
 export { default as USelectMenu } from '../../components/common/select/menu.svelte';
 export { default as USelect } from '../../components/common/select/select.svelte';
@@ -49,14 +49,16 @@ export { default as UToggle } from '../../components/common/toggle/toggle.svelte
 export { default as UTooltip } from '../../components/common/tooltip/tooltip.svelte';
 
 /** website */
+export { default as UAside } from '../../components/website/aside/aside.svelte';
 export { default as UChip } from '../../components/website/chip/chip.svelte';
 export { default as UCollapsible } from '../../components/website/collapsible/collapsible.svelte';
 export { default as UContextMenu } from '../../components/website/context/menu.svelte';
 export { default as UFooter } from '../../components/website/footer/footer.svelte';
+export { default as UFooterItem } from '../../components/website/footer/item.svelte';
 export { default as UHeaderAside } from '../../components/website/header/aside.svelte';
 export { default as UHeader } from '../../components/website/header/header.svelte';
 export { default as UHeaderItem } from '../../components/website/header/item.svelte';
-export { default as UHeaderMenu } from '../../components/website/header/menu.svelte';
+export { default as UHeading } from '../../components/website/heading/heading.svelte';
 export { default as UIcon } from '../../components/website/icon/icon.svelte';
 export { default as ULabel } from '../../components/website/label/label.svelte';
 export { default as UPopover } from '../../components/website/popover/popover.svelte';

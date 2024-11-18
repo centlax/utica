@@ -1,6 +1,7 @@
 /** Imports */
 
 import type { Styles } from '$lib/utian/types.js';
+import type { CreateProgressProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
@@ -15,5 +16,8 @@ export const progress = styles;
 /** Props */
 type Props = HTMLAttributes<HTMLDivElement>;
 export interface ProgressProps extends Props {
-	children: Snippet;
+	children?: Snippet;
+	max?: CreateProgressProps['max'];
+	'default-value'?: CreateProgressProps['defaultValue'];
+	value?: number;
 }
