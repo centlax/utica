@@ -57,10 +57,6 @@
 					{#if $isSelected(manga)}
 						<div class="check absolute left-2 top-1/2 z-10 text-primary-900">v</div>
 					{/if}
-					<div class="pl-4">
-						<span class="font-medium">{manga.title}</span>
-						<span class="block text-sm opacity-75">{manga.author}</span>
-					</div>
 				</li>
 			{:else}
 				<li class="relative cursor-pointer rounded-md py-1 pl-8 pr-4">No results found</li>

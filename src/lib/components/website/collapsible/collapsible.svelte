@@ -39,11 +39,7 @@
 		<span class="text-base text-black">melt-ui/melt-ui</span>
 	</div>
 	<div
-		style:position="absolute"
-		style:top="calc(100% + 10px)"
-		style:bottom="calc(100% - 10px)"
-		style:right="0"
-		style:left="0"
+	
 	>
 		{#if $open}
 			<div use:melt={$content} transition:slide>
@@ -54,12 +50,3 @@
 		{/if}
 	</div>
 </div>
-
-<style lang="postcss">
-	.abs-center {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
-</style>

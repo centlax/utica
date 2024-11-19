@@ -18,3 +18,5 @@ export interface ComboboxProps extends BaseProps<typeof combobox>, Props {
 	empty?: Snippet;
 	option?: Snippet
 }
+
+/** Context  */

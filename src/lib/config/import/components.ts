@@ -1,7 +1,7 @@
+
 /** application */
-export { default as UAlert } from '../../components/application/alert/alert.svelte';
 export { default as UCombobox } from '../../components/application/combobox/combobox.svelte';
-export { default as UCommandMenu } from '../../components/application/command/menu.svelte';
+export { default as UCommandMenu } from '../../components/application/command/_menu.svelte';
 export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
 export { default as UField } from '../../components/application/field/field.svelte';
 export { default as UFormDebug } from '../../components/application/form/debug.svelte';
@@ -16,7 +16,6 @@ export { default as URadio } from '../../components/application/radio/radio.svel
 export { default as USheet } from '../../components/application/sheet/sheet.svelte';
 export { default as USidebarItem } from '../../components/application/sidebar/item.svelte';
 export { default as USidebar } from '../../components/application/sidebar/sidebar.svelte';
-export { default as UTable } from '../../components/application/table/table.svelte';
 export { default as UTextarea } from '../../components/application/textarea/textarea.svelte';
 export { default as UToolbar } from '../../components/application/toolbar/toolbar.svelte';
 
@@ -51,13 +50,13 @@ export { default as UTooltip } from '../../components/common/tooltip/tooltip.sve
 export { default as UAside } from '../../components/website/aside/aside.svelte';
 export { default as UChip } from '../../components/website/chip/chip.svelte';
 export { default as UCollapsible } from '../../components/website/collapsible/collapsible.svelte';
-export { default as UContextMenu } from '../../components/website/context/menu.svelte';
+export { default as UContextMenu } from '../../components/website/context/_menu.svelte';
 export { default as UFooter } from '../../components/website/footer/footer.svelte';
 export { default as UFooterItem } from '../../components/website/footer/item.svelte';
 export { default as UHeaderAside } from '../../components/website/header/aside.svelte';
 export { default as UHeader } from '../../components/website/header/header.svelte';
 export { default as UHeaderItem } from '../../components/website/header/item.svelte';
-export { default as UHeading } from '../../components/website/heading/heading.svelte';
+export { default as UHeading } from '../../components/website/title/title.svelte';
 export { default as UIcon } from '../../components/website/icon/icon.svelte';
 export { default as ULabel } from '../../components/website/label/label.svelte';
 export { default as UPopover } from '../../components/website/popover/popover.svelte';
