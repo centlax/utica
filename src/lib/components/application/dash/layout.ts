@@ -8,4 +8,6 @@ export const dashboard = styles;
 /** Props */
 export interface DashLayoutProps {
 	children: Snippet;
+	north?: Snippet;
+	south?: Snippet;
 }

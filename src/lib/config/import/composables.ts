@@ -1,3 +1,4 @@
+export * from '../../composables/config.js';
 export * from '../../composables/dark.js';
 export * from '../../composables/dialog.js';
 export * from '../../composables/form.js';

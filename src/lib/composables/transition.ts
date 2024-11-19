@@ -5,7 +5,7 @@ interface UseTransitionOptions<T> {
 	out?: Partial<T>;
 }
 
-export function useTransition<T>(
+function set<T>(
 	params?: TransitionParams<T>,
 	options: UseTransitionOptions<T> | Partial<T> = {}
 ): {
@@ -52,5 +52,11 @@ export function useTransition<T>(
 	return {
 		in: inValues,
 		out: outValues
+	};
+}
+
+export function useTransition() {
+	return {
+		set
 	};
 }

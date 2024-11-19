@@ -1,40 +1,53 @@
 <script lang="ts">
+	/** Imports  */
 	import { ctxForm, ctxField } from '$lib/composables/form.js';
 	import { formFieldProxy } from 'sveltekit-superforms';
-	import type { FieldProps } from './field.js';
+	import { field, type FieldProps } from './field.js';
+	import { useUI } from '$lib/utian/index.js';
+	import { cn } from '$lib/utils/merge.js';
+	import { stringify } from '$lib/utian/utils.js';
 
-	// Extract props with default value for name
+	/** Props  */
 	let { name, ...props }: FieldProps = $props();
 
-	// Retrieve form context
 	const _form = ctxForm();
 	const form = _form.get();
 
-	// Set field in context
 	const proxy = formFieldProxy(form, name);
-	const field = ctxField();
-	field.set(proxy, name);
+	const ctx = ctxField();
+	ctx.set(proxy, name);
 
 	const { errors } = proxy;
+
+	/** Styles  */
+	const ui = useUI(field, props.class, props.override);
 </script>
 
-<div {...props}>
+{#snippet _error()}
+	<p class={stringify(ui.error)}>
+		{#if typeof props.error === 'string' || $errors}
+			{props.error || $errors?.[0]}
+		{:else}
+			{@render props.error?.()}
+		{/if}
+	</p>
+{/snippet}
+
+{#snippet _help()}
+	<p class={stringify(ui.help)}>
+		{#if typeof props.help === 'string'}
+			{props.help}
+		{:else}
+			{@render props.help?.()}
+		{/if}
+	</p>
+{/snippet}
+
+<div {...props} class={cn(stringify(ui.root), ui.class)}>
 	{@render props.children?.()}
 	{#if props.error || $errors}
-		<p class="error">
-			{#if typeof props.error === 'string' || $errors}
-				{props.error || $errors}
-			{:else}
-				{@render props.error?.()}
-			{/if}
-		</p>
+		{@render _error()}
 	{:else}
-		<p class="help">
-			{#if typeof props.help === 'string'}
-				{props.help}
-			{:else}
-				{@render props.help?.()}
-			{/if}
-		</p>
+		{@render _help()}
 	{/if}
 </div>

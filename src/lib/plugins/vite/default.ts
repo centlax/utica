@@ -1,8 +1,9 @@
-export default {
+import type { DeepPartial } from '$lib/utian/types.js';
+
+export const defaultConfig = {
 	colors: {
 		primary: 'sky',
-		secondary: 'indigo',
-		gray: 'neutral',
+		neutral: 'neutral',
 		success: 'green',
 		warning: 'yellow',
 		danger: 'red',
@@ -30,6 +31,9 @@ export default {
 			'warning',
 			'danger'
 		] as const,
-		base: ['slate', /** gray become cool */ 'cool', 'zinc', 'neutral', 'stone'] as const
+		base: ['slate', 'zinc', 'cool', /** nuetral become warm */ 'stone'] as const
 	}
 };
+
+export type DefaultConfig = typeof defaultConfig;
+export type UserConfig = DeepPartial<typeof defaultConfig>;

@@ -14,10 +14,10 @@ const styles = {
 		flex: ''
 	},
 	overlay: {
-		flex: 'fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"'
+		flex: 'fixed inset-0 z-50 transition-colors bg-black/50 backdrop-blur-sm'
 	},
 	content: {
-		flex: 'fixed top-0 z-50 h-full focus:outline-none'
+		flex: 'fixed  z-50 focus:outline-none'
 	}
 } satisfies Styles;
 export const sheet = styles;

@@ -11,7 +11,6 @@ export { default as UMenuItem } from '../../components/application/menu/item.sve
 export { default as UMenu } from '../../components/application/menu/menu.svelte';
 export { default as UMenubar } from '../../components/application/menubar/menubar.svelte';
 export { default as UModal } from '../../components/application/modal/modal.svelte';
-export { default as UNotificate } from '../../components/application/notificate/notificate.svelte';
 export { default as UPaginate } from '../../components/application/paginate/paginate.svelte';
 export { default as URadio } from '../../components/application/radio/radio.svelte';
 export { default as USheet } from '../../components/application/sheet/sheet.svelte';

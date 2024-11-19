@@ -7,6 +7,6 @@
 	/** styles */
 </script>
 
-<div data-ui="dash-layout">
+<div data-ui="layout">
 	{@render props.children()}
 </div>
