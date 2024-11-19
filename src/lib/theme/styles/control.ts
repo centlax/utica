@@ -1,12 +1,8 @@
-/** Imports */
 import type { BaseProps } from '$lib/types/prop.js';
 import type { Styles } from '$lib/utian/types.js';
 import { statify } from '$lib/utian/utils.js';
 import type { Snippet } from 'svelte';
-import type { Action } from 'svelte/action';
-import type { HTMLInputAttributes } from 'svelte/elements';
 
-/** Styles */
 const styles = {
 	root: {
 		flex: 'block w-full',
@@ -21,7 +17,6 @@ const styles = {
 		effect: 'shadow-sm'
 	},
 	is: {},
-
 	opt: {
 		variant: {
 			outline: {
@@ -59,11 +54,9 @@ const styles = {
 		}
 	}
 } satisfies Styles;
-export const input = styles;
 
-/** Props */
-type Props = Omit<HTMLInputAttributes, 'class'>;
-export interface InputProps extends BaseProps<typeof input>, Props {
+export const control = styles;
+
+export interface ControlProps extends BaseProps<typeof control> {
 	children?: Snippet;
-	use?: Action<unknown, unknown>[]; // Add this line to explicitly define the type of `use`
 }

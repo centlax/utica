@@ -1,23 +1,20 @@
 /** Imports */
+import type { BaseProps } from '$lib/types/prop.js';
 import type { Styles } from '$lib/utian/types.js';
 import type { Snippet } from 'svelte';
-import type { HTMLAnchorAttributes, HTMLLabelAttributes } from 'svelte/elements';
+import type { HTMLLabelAttributes } from 'svelte/elements';
 
 /** Styles */
 const styles = {
 	root: {
 		flex: 'flex justify-between',
-		typography: 'block text-sm/6 font-medium text-gray-900 dark:bg-white'
-	},
-	hint: {
-		typography: 'text-primary-500'
+		typography: 'block text-sm/6 font-medium text-neutral-900 dark:bg-white'
 	}
 } satisfies Styles;
 export const label = styles;
 
 /** Props */
-export interface LabelProps extends HTMLLabelAttributes {
+type Props = Omit<HTMLLabelAttributes, 'class'>;
+export interface LabelProps extends BaseProps<typeof label>, Props {
 	children?: Snippet;
-	hint?: Snippet | string;
-	href?: HTMLAnchorAttributes['href'];
 }

@@ -6,6 +6,7 @@
 	import { useUI } from '$lib/utian/index.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { stringify } from '$lib/utian/utils.js';
+	import { fade } from 'svelte/transition';
 
 	/** Props  */
 	let { name, ...props }: FieldProps = $props();
@@ -24,7 +25,7 @@
 </script>
 
 {#snippet _error()}
-	<p class={stringify(ui.error)}>
+	<p transition:fade class={stringify(ui.error)}>
 		{#if typeof props.error === 'string' || $errors}
 			{props.error || $errors?.[0]}
 		{:else}

@@ -7,13 +7,13 @@ import type { HTMLAnchorAttributes, HTMLAttributes } from 'svelte/elements';
 /** Styles */
 const styles = {
 	root: {
-		spacing: 'space-y-1 [data-ui=field]:mt-3'
+		spacing: 'space-y-2 [data-ui=control]'
 	},
 	help: {
-		typography: 'text-xs text-gray-500'
+		typography: 'text-sm text-neutral-500'
 	},
 	error: {
-		typography: 'text-xs text-danger-500'
+		typography: 'text-sm text-danger-500'
 	}
 } satisfies Styles;
 export const field = styles;

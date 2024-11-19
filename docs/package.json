@@ -8,8 +8,8 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"sb": "storybook dev -p 6006",
+		"build:sb": "storybook build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",

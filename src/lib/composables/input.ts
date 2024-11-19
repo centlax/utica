@@ -1,16 +1,22 @@
-import { getContext, setContext } from 'svelte';
+import { getContext, hasContext, setContext } from 'svelte';
 
-export function useInput() {
+export function ctxInput() {
+	const key = 'melt';
 	function set(value: unknown) {
-		setContext('input', value);
+		setContext(key, value);
+	}
+
+	function has() {
+		return hasContext(key);
 	}
 
 	function get() {
-		const value = getContext<unknown>('value');
-		return { value };
+		return getContext<unknown>(key);
 	}
+
 	return {
 		set,
+		has,
 		get
 	};
 }
