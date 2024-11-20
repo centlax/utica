@@ -1,18 +1,29 @@
 /** Imports */
+import type { BaseProps } from '$lib/types/prop.js';
+import type { TransitionParams } from '$lib/types/transition.js';
+import type { TransformKeysToKebab } from '$lib/types/utils.js';
+import type { Styles } from '$lib/utian/types.js';
 import type { CreateAccordionProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
-//import type { AccordionLink } from '$lib/types/link.js';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SlideParams } from 'svelte/transition';
 
 /** Styles */
-const styles = {};
-export const paginate = styles;
+const styles = {
+	root: {},
+	item: {},
+	trigger: {},
+	content: {}
+} satisfies Styles;
+export const accordion = styles;
 
 /** Props */
-export interface AccordionProps {
+type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
+	Omit<TransformKeysToKebab<CreateAccordionProps>, 'value'>;
+export interface AccordionProps<T> extends BaseProps<typeof accordion>, Props {
 	children?: Snippet;
-	multiple?: CreateAccordionProps['multiple'];
-	disabled?: CreateAccordionProps['disabled'];
-	'force-visible'?: CreateAccordionProps['forceVisible'];
-	'default-value'?: CreateAccordionProps['defaultValue'];
-	value?: CreateAccordionProps['value'];
+	trigger?: Snippet<[T]>;
+	content?: Snippet<[T]>;
+	items: T[];
+	transition?: TransitionParams<SlideParams>;
 }

@@ -16,7 +16,8 @@
 		elements: { overlay, content, portalled, trigger, close },
 		states
 	} = createDialog({
-		forceVisible: true
+		forceVisible: true,
+		open: props['open']
 	});
 
 	const sync = createSync(states);
@@ -35,6 +36,8 @@
 	/** Styles */
 	const ui = useUI(modal, props.class, props.override);
 </script>
+
+{@render props.children?.()}
 
 {#if value}
 	<div class={stringify(ui.root)} use:melt={$portalled}>

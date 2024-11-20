@@ -38,9 +38,7 @@
 	<div class="my-2 rounded-lg bg-white p-3 shadow">
 		<span class="text-base text-black">melt-ui/melt-ui</span>
 	</div>
-	<div
-	
-	>
+	<div>
 		{#if $open}
 			<div use:melt={$content} transition:slide>
 				{#if props.children}

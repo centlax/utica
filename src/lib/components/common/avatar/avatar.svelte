@@ -1,53 +1,34 @@
 <script lang="ts">
 	/** Imports */
 	import { createAvatar, melt } from '@melt-ui/svelte';
-	import type { AvatarProps } from './avatar.js';
-	import { fade } from 'svelte/transition';
-	import { getContext } from 'svelte';
+	import { avatar, type AvatarProps } from './avatar.js';
+	import { useUI } from '$lib/utian/index.js';
+	import { stringify as st } from '$lib/utian/utils.js';
+	import { cn } from '$lib/utils/merge.js';
 
 	/** Props */
 	let { ...props }: AvatarProps = $props();
 
 	const {
-		elements: { image, fallback },
-		states: { loadingStatus }
+		elements: { image, fallback }
 	} = createAvatar({
 		src: props['src'] ?? '',
 		delayMs: props['delay-ms'],
 		loadingStatus: props['loading-status']
 	});
-	/** Styles */
 
-	/** Calculate zIndex based on group context */
-	const value: any = getContext('counter');
-	const max: any = getContext('max');
-	value.count++;
-	let current = value.count;
-	let zIndex = (current - 1) * -10;
+	/** Styles */
+	const ui = useUI(avatar, props.class, props.override);
 </script>
 
-<span
-	data-ui="avatar"
-	style="z-index: {zIndex};"
-	{...props}
-	class="{current > max
-		? 'hidden'
-		: ''} flex size-6 items-center justify-center rounded-full bg-neutral-100 ring-2 ring-white"
->
-	{#if $loadingStatus === 'loaded'}
-		<img
-			use:melt={$image}
-			data-melt-avatar-image
-			transition:fade
-			alt={props.alt}
-			class="size-full select-none rounded-[inherit]"
-		/>
-	{/if}
-	<span use:melt={$fallback} class="text-3xl font-medium text-sky-700">
-		{#if props['text']}
-			{props.text}
+<span data-ui="avatar" class={cn(st(ui.root), ui.class)}>
+	{@render props.children?.()}
+	<img use:melt={$image} alt={props.alt} class={st(ui.image)} />
+	<span use:melt={$fallback} class={st(ui.fallback)}>
+		{#if typeof props.fallback === 'string'}
+			{props.fallback}
 		{:else}
-			{@render props.children?.()}
+			{@render props.fallback?.()}
 		{/if}
 	</span>
 </span>

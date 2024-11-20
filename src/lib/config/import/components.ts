@@ -1,6 +1,7 @@
-
 /** application */
+export { default as UDashAside } from '../../components/application/dash/aside.svelte';
 export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
+export { default as UDashMain } from '../../components/application/dash/main.svelte';
 export { default as UField } from '../../components/application/field/field.svelte';
 export { default as UFormDebug } from '../../components/application/form/debug.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
@@ -15,9 +16,8 @@ export { default as UToolbar } from '../../components/application/toolbar/toolba
 
 /** common */
 export { default as UAccordion } from '../../components/common/accordion/accordion.svelte';
-export { default as UAccordionItem } from '../../components/common/accordion/item.svelte';
 export { default as UAvatar } from '../../components/common/avatar/avatar.svelte';
-export { default as UAvatarGroup } from '../../components/common/avatar/group.svelte';
+export { default as UBadge } from '../../components/common/badge/badge.svelte';
 export { default as UButton } from '../../components/common/button/button.svelte';
 export { default as UCard } from '../../components/common/card/card.svelte';
 export { default as UCheckbox } from '../../components/common/checkbox/checkbox.svelte';
@@ -36,6 +36,7 @@ export { default as UToggle } from '../../components/common/toggle/toggle.svelte
 export { default as UTooltip } from '../../components/common/tooltip/tooltip.svelte';
 
 /** website */
+export { default as UChip } from '../../components/website/chip/chip.svelte';
 export { default as UCollapsible } from '../../components/website/collapsible/collapsible.svelte';
 export { default as UDescription } from '../../components/website/description/description.svelte';
 export { default as UFooter } from '../../components/website/footer/footer.svelte';

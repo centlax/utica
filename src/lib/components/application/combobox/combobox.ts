@@ -16,7 +16,7 @@ type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
 export interface ComboboxProps extends BaseProps<typeof combobox>, Props {
 	children?: Snippet;
 	empty?: Snippet;
-	option?: Snippet
+	option?: Snippet;
 }
 
 /** Context  */

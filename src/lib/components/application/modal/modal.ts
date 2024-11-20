@@ -26,7 +26,7 @@ export const modal = styles;
 /** Props */
 
 type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
-	Omit<TransformKeysToKebab<CreateDialogProps>, 'value' | 'onOpenChange' | 'ids'>;
+	Omit<TransformKeysToKebab<CreateDialogProps>, 'ids'>;
 
 export interface ModalProps extends BaseProps<typeof modal>, Props {
 	children?: Snippet;

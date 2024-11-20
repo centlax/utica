@@ -51,7 +51,6 @@
 			class="flex max-h-full flex-col gap-0 overflow-y-auto bg-white px-2 py-2 text-black"
 			tabindex="0"
 		>
-
 			{#each mangas as manga, index (index)}
 				<li use:melt={$option(toOption(manga))}>
 					{#if $isSelected(manga)}
@@ -64,4 +63,3 @@
 		</div>
 	</ul>
 {/if}
-
