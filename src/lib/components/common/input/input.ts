@@ -1,7 +1,7 @@
 /** Imports */
 import type { BaseProps } from '$lib/types/prop.js';
-import type { Styles } from '$lib/utian/types.js';
-import { statify } from '$lib/utian/utils.js';
+import type { Styles } from '$lib/types/ui.js';
+import { statify } from '$lib/utils/utils.js';
 import type { Snippet } from 'svelte';
 import type { Action } from 'svelte/action';
 import type { HTMLInputAttributes } from 'svelte/elements';

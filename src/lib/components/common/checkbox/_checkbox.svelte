@@ -9,7 +9,6 @@
 	});
 </script>
 
-<div data-ui="checkbox" class="flex items-center justify-center">
 	<button
 		use:melt={$root}
 		class="flex size-7 appearance-none items-center justify-center
@@ -23,5 +22,4 @@
 		{/if}
 		<input use:melt={$input} />
 	</button>
-	<label class="pl-4 font-medium text-sky-900" for="checkbox"> Accept terms and conditions. </label>
-</div>
+

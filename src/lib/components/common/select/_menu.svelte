@@ -4,9 +4,9 @@
 	import { selectMenu, type Item, type SelectMenuProps } from './menu.js';
 	import { fly } from 'svelte/transition';
 	import { UIcon } from '$lib/index.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { cn } from '$lib/utils/merge.js';
-	import { stringify as st } from '$lib/utian/utils.js';
+	import { stringify as st } from '$lib/utils/utils.js';
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Props */

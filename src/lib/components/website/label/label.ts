@@ -1,6 +1,6 @@
 /** Imports */
 import type { BaseProps } from '$lib/types/prop.js';
-import type { Styles } from '$lib/utian/types.js';
+import type { Styles } from '$lib/types/ui.js';
 import type { Snippet } from 'svelte';
 import type { HTMLLabelAttributes } from 'svelte/elements';
 

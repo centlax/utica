@@ -1,4 +1,4 @@
-import type { State, Utility } from './types.js';
+import type { State, Utility } from '../types/ui.js';
 
 /**
  * Converts multiple objects into a single string by concatenating non-object property values.
@@ -22,11 +22,11 @@ export function statify(state: State): string {
 		: '';
 }
 
-type Variant = {
+/* type Variant = {
 	color: Utility; // Primary key representing the default color variant.
 	[key: string]: Utility; // Any additional keys representing other color variants.
 };
-
+ */
 /**
  * Function to retrieve the appropriate `ClassType` based on the given color from a variant object.
  *
@@ -35,7 +35,7 @@ type Variant = {
  * @returns The `ClassType` corresponding to the given color, or the default color if the color is not found.
  * @throws Will throw an error if the `variant` is not a non-null object.
  */
-export function variantify(variant: Variant, color: any): Utility {
+/* export function variantify(variant: Variant, color: any): Utility {
 	// Check if the variant is a valid non-null object.
 	if (!variant || typeof variant !== 'object') {
 		throw new Error('Invalid object input. Object must be a non-null object.');
@@ -48,3 +48,4 @@ export function variantify(variant: Variant, color: any): Utility {
 	// Return the `ClassType` associated with the specified color.
 	return variant[color];
 }
+ */

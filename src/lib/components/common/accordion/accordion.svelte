@@ -4,8 +4,8 @@
 	import { createAccordion, melt } from '@melt-ui/svelte';
 	import { slide } from 'svelte/transition';
 	import { accordion, type AccordionProps } from './accordion.js';
-	import { useUI } from '$lib/utian/index.js';
-	import { stringify as st } from '$lib/utian/utils.js';
+	import { useUI } from '$lib/composables/ui.js';
+	import { stringify as st } from '$lib/utils/utils.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { useTransition } from '$lib/composables/transition.js';
 

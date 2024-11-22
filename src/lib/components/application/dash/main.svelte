@@ -1,7 +1,7 @@
 <script lang="ts">
 	/** Imports */
-	import { useUI } from '$lib/utian/index.js';
-	import { stringify as st } from '$lib/utian/utils.js';
+	import { useUI } from '$lib/composables/ui.js';
+	import { stringify as st } from '$lib/utils/utils.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { type DashMainProps, dashMain } from './main.js';
 

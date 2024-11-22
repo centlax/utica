@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
-import utica from './src/lib/plugins/vite/index.js';
+import utica from './src/lib/config/plugins/vite/index.js';
 
 export default defineConfig({
 	plugins: [sveltekit(), utica()],

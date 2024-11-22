@@ -1,9 +1,9 @@
 <script lang="ts">
 	/** Imports */
 	import { type BadgeProps, badge } from './badge.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { cn } from '$lib/utils/merge.js';
-	import { stringify as st } from '$lib/utian/utils.js';
+	import { stringify as st } from '$lib/utils/utils.js';
 
 	/** Props */
 	let { ...props }: BadgeProps = $props();

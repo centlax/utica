@@ -1,8 +1,8 @@
 <script lang="ts">
 	/** Imports */
 	import { USheet } from '$lib/index.js';
-	import { useUI } from '$lib/utian/index.js';
-	import { stringify as st } from '$lib/utian/utils.js';
+	import { useUI } from '$lib/composables/ui.js';
+	import { stringify as st } from '$lib/utils/utils.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { dashLayout, type DashLayoutProps } from './layout.js';
 

@@ -3,9 +3,9 @@
 	import { createCollapsible, createSync, melt } from '@melt-ui/svelte';
 	import { slide } from 'svelte/transition';
 	import { collapsible, type CollapsibleProps } from './collapsible.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { useTransition } from '$lib/composables/transition.js';
-	import { stringify as st } from '$lib/utian/utils.js';
+	import { stringify as st } from '$lib/utils/utils.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { useToggle } from '$lib/composables/toggle.js';
 

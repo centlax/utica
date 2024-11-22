@@ -1,5 +1,5 @@
 import { cn } from '$lib/utils/merge.js';
-import type { DeepStyles } from './types.js';
+import type { DeepStyles } from '../types/ui.js';
 
 // Array of allowed keys in the ClassType interface
 const classTypeKeys = new Set([

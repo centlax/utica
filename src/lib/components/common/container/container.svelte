@@ -1,9 +1,9 @@
 <script lang="ts">
 	/** Imports */
 	import { type ContainerProps, container } from './container.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { cn } from '$lib/utils/merge.js';
-	import { stringify } from '$lib/utian/utils.js';
+	import { stringify } from '$lib/utils/utils.js';
 
 	/** Props */
 	let { ...props }: ContainerProps = $props();

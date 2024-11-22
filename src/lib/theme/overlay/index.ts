@@ -1,4 +1,4 @@
-import type { Styles } from '$lib/utian/types.js';
+import type { Styles } from '$lib/types/ui.js';
 
 export const styles = {
 	overlay: {}

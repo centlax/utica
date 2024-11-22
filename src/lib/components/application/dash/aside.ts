@@ -2,7 +2,7 @@
 //import type { Link } from '$lib/types/link.js';
 import type { Item } from '$lib/types/item.js';
 import type { BaseProps } from '$lib/types/prop.js';
-import type { Styles } from '$lib/utian/types.js';
+import type { Styles } from '$lib/types/ui.js';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 

@@ -1,7 +1,7 @@
 /** Imports */
 import type { BaseProps } from '$lib/types/prop.js';
 import type { TransformKeysToKebab } from '$lib/types/utils.js';
-import type { Styles } from '$lib/utian/types.js';
+import type { Styles } from '$lib/types/ui.js';
 import type { CreateAvatarProps } from '@melt-ui/svelte';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';

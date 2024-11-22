@@ -6,8 +6,8 @@
 	import { cn } from '$lib/utils/merge.js';
 	import { fromTransition, sheet, type SheetProps } from './sheet.js';
 	import { useTransition } from '$lib/composables/transition.js';
-	import { stringify as st } from '$lib/utian/utils.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { stringify as st } from '$lib/utils/utils.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { ctxMelt } from '$lib/composables/melt.js';
 
 	/** Props */

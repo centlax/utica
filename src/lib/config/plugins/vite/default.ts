@@ -1,4 +1,4 @@
-import type { DeepPartial } from '$lib/utian/types.js';
+import type { DeepPartial } from '$lib/types/ui.js';
 
 export const defaultConfig = {
 	colors: {

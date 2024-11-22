@@ -6,8 +6,8 @@
 	import { modal, type ModalProps } from './modal.js';
 	import { useTransition } from '$lib/composables/transition.js';
 	import { cn } from '$lib/utils/merge.js';
-	import { stringify as st } from '$lib/utian/utils.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { stringify as st } from '$lib/utils/utils.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { ctxMelt } from '$lib/composables/melt.js';
 	import { fade } from 'svelte/transition';
 

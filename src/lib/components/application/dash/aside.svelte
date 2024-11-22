@@ -1,8 +1,8 @@
 <script lang="ts" generics="T extends Item<T>">
 	/** Imports */
 	import { type DashAsideProps, dashAside } from './aside.js';
-	import { stringify as st } from '$lib/utian/utils.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { stringify as st } from '$lib/utils/utils.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { UCollapsible, UIcon, UPopover, UToggle } from '$lib/index.js';
 	import { type Item } from '$lib/types/item.js';

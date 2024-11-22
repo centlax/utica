@@ -4,9 +4,9 @@
 	import { createPopover, createSync, melt } from '@melt-ui/svelte';
 	import { fade } from 'svelte/transition';
 	import { popover, type PopoverProps } from './popover.js';
-	import { useUI } from '$lib/utian/index.js';
+	import { useUI } from '$lib/composables/ui.js';
 	import { cn } from '$lib/utils/merge.js';
-	import { stringify } from '$lib/utian/utils.js';
+	import { stringify } from '$lib/utils/utils.js';
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Props */
@@ -35,7 +35,7 @@
 		sync.open(value, (v) => (value = v));
 	});
 	const toogle = useToggle();
-	toogle.set(states.open, trigger, close);
+	toogle.set(states.open, $trigger, $close);
 
 	/** Styles */
 	const ui = useUI(popover, props.class, props.override);
