@@ -1,5 +1,6 @@
 /** application */
 export { default as UDashAside } from '../../components/application/dash/aside.svelte';
+export { default as UDashHeader } from '../../components/application/dash/header.svelte';
 export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
 export { default as UDashMain } from '../../components/application/dash/main.svelte';
 export { default as UField } from '../../components/application/field/field.svelte';
@@ -38,9 +39,6 @@ export { default as UTooltip } from '../../components/common/tooltip/tooltip.sve
 export { default as UChip } from '../../components/website/chip/chip.svelte';
 export { default as UCollapsible } from '../../components/website/collapsible/collapsible.svelte';
 export { default as UDescription } from '../../components/website/description/description.svelte';
-export { default as UFooter } from '../../components/website/footer/footer.svelte';
-export { default as UFooterItem } from '../../components/website/footer/item.svelte';
-export { default as UHeader } from '../../components/website/header/header.svelte';
 export { default as UIcon } from '../../components/website/icon/icon.svelte';
 export { default as ULabel } from '../../components/website/label/label.svelte';
 export { default as UPopover } from '../../components/website/popover/popover.svelte';

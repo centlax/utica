@@ -41,8 +41,7 @@
 				<a href="/" class="text-sm/6 font-semibold">{label}</a>
 			{/snippet}
 			{#snippet east()}
-				<a href="/" class="text-sm/6 font-semibold "
-					>Log in <span aria-hidden="true">&rarr;</span></a
+				<a href="/" class="text-sm/6 font-semibold">Log in <span aria-hidden="true">&rarr;</span></a
 				>
 			{/snippet}
 		</USiteHeader>
@@ -92,9 +91,13 @@
 		{#snippet west()}
 			{@render centlax()}
 		{/snippet}
-		{#snippet trigger({ label, href })}
+
+		{#snippet trigger({ title })}
+			<h3 class="text-sm/6 font-semibold text-white">{title}</h3>
+		{/snippet}
+		{#snippet content({ label })}
 			<li>
-				<a {href} class="text-sm/6 text-neutral-400 hover:text-white">{label}</a>
+				<a href="/" class="text-sm/6 text-neutral-400 hover:text-white">{label}</a>
 			</li>
 		{/snippet}
 

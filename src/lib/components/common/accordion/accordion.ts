@@ -1,4 +1,5 @@
 /** Imports */
+import type { Item } from '$lib/types/item.js';
 import type { BaseProps } from '$lib/types/prop.js';
 import type { TransitionParams } from '$lib/types/transition.js';
 import type { TransformKeysToKebab } from '$lib/types/utils.js';
@@ -20,7 +21,7 @@ export const accordion = styles;
 /** Props */
 type Props = Omit<HTMLAttributes<HTMLElement>, 'class'> &
 	Omit<TransformKeysToKebab<CreateAccordionProps>, 'value'>;
-export interface AccordionProps<T> extends BaseProps<typeof accordion>, Props {
+export interface AccordionProps<T extends Item<T>> extends BaseProps<typeof accordion>, Props {
 	children?: Snippet;
 	trigger?: Snippet<[T]>;
 	content?: Snippet<[T]>;

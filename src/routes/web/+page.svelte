@@ -7,6 +7,7 @@
 </script>
 
 <button onclick={dark.toggle}>dakr</button>
+
 <!-- <h3 class="text-sm/6 font-semibold text-white">title</h3>
 <div class="relative mt-10 overflow-auto rounded-xl p-8">
 	<div

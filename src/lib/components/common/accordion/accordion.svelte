@@ -1,5 +1,6 @@
-<script lang="ts" generics="T">
+<script lang="ts" generics="T extends Item<T>">
 	/** Imports */
+	import type { Item } from '$lib/types/item.js';
 	import { createAccordion, melt } from '@melt-ui/svelte';
 	import { slide } from 'svelte/transition';
 	import { accordion, type AccordionProps } from './accordion.js';
@@ -24,7 +25,9 @@
 	/** Styles */
 	const ui = useUI(accordion, props.class, props.override);
 	const transition = useTransition();
-	const txn = transition.set(props.transition);
+	const txn = $state(transition.set(props.transition, {
+		duration: 200
+	}));
 </script>
 
 <div data-ui="accordion" use:melt={$root} class={st(ui.root)}>
