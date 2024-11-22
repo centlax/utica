@@ -10,7 +10,7 @@
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Props */
-	let { value = $bindable(false), ...props }: PopoverProps = $props();
+	let { as = 'div', value = $bindable(false), ...props }: PopoverProps = $props();
 
 	const {
 		elements: { trigger, content, arrow, close, overlay },
@@ -51,8 +51,9 @@
 {@render props.children?.()}
 
 {#if value}
-	<div
-		data-ui="overlay"
+	<svelte:element
+		this={as}
+		data-ui="popover"
 		{...props}
 		use:melt={$content}
 		in:fade={txn.content.in}
@@ -63,5 +64,5 @@
 			<div class={stringify(ui.arrow)} use:melt={$arrow}></div>
 		{/if}
 		{@render props.content?.()}
-	</div>
+	</svelte:element>
 {/if}

@@ -30,8 +30,11 @@ type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
 
 export interface ModalProps extends BaseProps<typeof modal>, Props {
 	children?: Snippet;
+	toggle?: Snippet;
 	content?: Snippet;
 	value?: boolean;
 	transition?: TransitionParams<FlyAndScaleParams>;
 	'overlay-transition'?: TransitionParams<FadeParams>;
+	overlay?: Snippet;
+	as?: keyof HTMLElementTagNameMap;
 }

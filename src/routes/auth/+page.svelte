@@ -15,7 +15,7 @@
 	const { form: state } = form;
 </script>
 
-<UForm {form} class="mx-auto flex max-w-md flex-col" method="POST">
+<UForm {form} class="mx-auto flex max-w-md flex-col">
 	<UField name="email" help="Company email is preferred">
 		<ULabel>Email</ULabel>
 		<UInput autocomplete="email" type="email" bind:value={$state.email} />

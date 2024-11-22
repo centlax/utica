@@ -17,7 +17,7 @@ const styles = {
 export const popover = styles;
 
 /** Props */
-type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
+type Props = Omit<HTMLAttributes<HTMLElement>, 'class'> &
 	Omit<TransformKeysToKebab<CreatePopoverProps>, 'value' | 'positioning' | 'onOpenChange' | 'ids'>;
 
 export interface PopoverProps extends BaseProps<typeof popover>, Props {
@@ -26,4 +26,5 @@ export interface PopoverProps extends BaseProps<typeof popover>, Props {
 	float?: CreatePopoverProps['positioning'];
 	value?: boolean;
 	transition?: TransitionParams<FadeParams>;
+	as?: string;
 }

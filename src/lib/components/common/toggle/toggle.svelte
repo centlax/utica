@@ -5,14 +5,16 @@
 	import { useToggle } from '$lib/composables/toggle.js';
 
 	/** Props */
-	let { ...props }: ToggleProps = $props();
+	let { as = 'span', ...props }: ToggleProps = $props();
+
 	const toggle = useToggle();
 	const { value, on, off } = toggle.get();
+
+	/** Determine the current state and action */
 	const state: boolean = $value || props.state === 'on' ? true : false;
 	const action: any = state ? off : on;
-	/** Styles */
 </script>
 
-<span data-ui="toggle" use:melt={$action} {...props}>
+<svelte:element this={as} {...props} data-ui="toggle" use:melt={action}>
 	{@render props.children()}
-</span>
+</svelte:element>

@@ -1,50 +1,60 @@
 <script lang="ts">
 	/** Imports */
-	import { createCollapsible, melt } from '@melt-ui/svelte';
+	import { createCollapsible, createSync, melt } from '@melt-ui/svelte';
 	import { slide } from 'svelte/transition';
-	import type { CollapsibleProps } from './collapsible.js';
+	import { collapsible, type CollapsibleProps } from './collapsible.js';
+	import { useUI } from '$lib/utian/index.js';
+	import { useTransition } from '$lib/composables/transition.js';
+	import { stringify as st } from '$lib/utian/utils.js';
+	import { cn } from '$lib/utils/merge.js';
+	import { useToggle } from '$lib/composables/toggle.js';
 
 	/** Props */
-	let { ...props }: CollapsibleProps = $props();
+	let { as = 'div', value = $bindable(false), ...props }: CollapsibleProps = $props();
 
 	const {
 		elements: { root, content, trigger },
-		states: { open }
+		states
 	} = createCollapsible({
-		forceVisible: true
+		disabled: props['disabled'] ?? false,
+		forceVisible: props['force-visible'] ?? false,
+		defaultOpen: props['default-open'] ?? false,
+		open: props['open'],
+		onOpenChange: props['on-open-change']
 	});
+
+	const sync = createSync(states);
+	$effect(() => {
+		sync.open(value, (v) => (value = v));
+	});
+	const toggle = useToggle();
+	//toggle.set($trigger)
+
+	/** Styles */
+	const ui = useUI(collapsible, props.class, props.override);
+	const transition = useTransition();
+	const txn = transition.set(props.transition);
 </script>
 
-<div use:melt={$root} class="relative mx-auto mb-28 w-[18rem] max-w-full sm:w-[25rem]">
-	<span class="text-magnum-900 text-sm font-semibold"> @thomasglopes starred 3 repositories </span>
-	<div>
-		<button
-			class="text-magnum-800 relative h-6 w-6 place-items-center rounded-md bg-white
-        text-sm shadow hover:opacity-75 data-[disabled]:cursor-not-allowed
-        data-[disabled]:opacity-75"
-			aria-label="Toggle"
-			use:melt={$trigger}
-		>
-			<div class="abs-center">
-				{#if $open}
-					X
-				{:else}
-					UPDN
-				{/if}
-			</div>
-		</button>
-	</div>
+<div data-ui="collapsible" use:melt={$root} class={st(ui.root)}>
+	{@render props.children?.()}
 
-	<div class="my-2 rounded-lg bg-white p-3 shadow">
-		<span class="text-base text-black">melt-ui/melt-ui</span>
-	</div>
-	<div>
-		{#if $open}
-			<div use:melt={$content} transition:slide>
-				{#if props.children}
-					{@render props.children()}
-				{/if}
-			</div>
-		{/if}
-	</div>
+	{#if props.trigger}
+		<span aria-label="toggle" use:melt={$trigger} class={st(ui.trigger)}>
+			{@render props.trigger(value)}
+		</span>
+	{/if}
+
+	{#if value}
+		<svelte:element
+			this={as}
+			{...props}
+			use:melt={$content}
+			in:slide={txn.in}
+			out:slide={txn.out}
+			class={cn(st(ui.content), ui.class)}
+		>
+			{@render props.content?.()}
+		</svelte:element>
+	{/if}
 </div>

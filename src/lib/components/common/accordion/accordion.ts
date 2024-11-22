@@ -18,7 +18,7 @@ const styles = {
 export const accordion = styles;
 
 /** Props */
-type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
+type Props = Omit<HTMLAttributes<HTMLElement>, 'class'> &
 	Omit<TransformKeysToKebab<CreateAccordionProps>, 'value'>;
 export interface AccordionProps<T> extends BaseProps<typeof accordion>, Props {
 	children?: Snippet;
@@ -26,4 +26,5 @@ export interface AccordionProps<T> extends BaseProps<typeof accordion>, Props {
 	content?: Snippet<[T]>;
 	items: T[];
 	transition?: TransitionParams<SlideParams>;
+	as?: string;
 }

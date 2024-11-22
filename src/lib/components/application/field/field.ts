@@ -28,5 +28,5 @@ export interface FieldProps extends BaseProps<typeof field>, Props {
 	error?: Snippet | string;
 	help?: Snippet | string;
 	name: string;
-	'all-errors': boolean;
+	'all-errors'?: boolean;
 }

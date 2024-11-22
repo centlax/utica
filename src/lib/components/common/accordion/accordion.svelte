@@ -9,7 +9,7 @@
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Imports */
-	let { items, ...props }: AccordionProps<T> = $props();
+	let { as = 'div', items, ...props }: AccordionProps<T> = $props();
 	const {
 		elements: { content, item, trigger, root },
 		helpers: { isSelected }
@@ -17,7 +17,7 @@
 		multiple: props['multiple'] ?? false,
 		disabled: props['disabled'] ?? false,
 		forceVisible: props['force-visible'] ?? false,
-		defaultValue: props['default-value'],
+		defaultValue: props['default-value'] ?? `${0}`,
 		onValueChange: props['on-value-change']
 	});
 
@@ -38,7 +38,8 @@
 			</button>
 
 			{#if $isSelected(id)}
-				<div
+				<svelte:element
+					this={as}
 					{...props}
 					use:melt={$content(id)}
 					in:slide={txn.in}
@@ -46,7 +47,7 @@
 					class={cn(st(ui.content), ui.class)}
 				>
 					{@render props.content?.(data)}
-				</div>
+				</svelte:element>
 			{/if}
 		</div>
 	{/each}

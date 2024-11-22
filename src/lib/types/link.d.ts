@@ -1,9 +1,25 @@
-import { HTMLAnchorAttributes } from 'svelte/elements';
-export interface Link extends HTMLAnchorAttributes {
+import type { HTMLAnchorAttributes } from 'svelte/elements';
+
+export interface Link<T extends Record<string, unknown> = unknown> extends HTMLAnchorAttributes, T {
+	/**
+	 * Label for the link
+	 */
 	label?: string;
-	title?: Link['label'];
+
+	/**
+	 * Description for the link
+	 */
 	description?: string;
-	links?: Link[];
-	items?: Link[];
-	[key: string]: string | unknown;
+
+	/**
+	 * Nested links for hierarchical structures
+	 */
+	links?: Link<T>[];
+
+	/**
+	 * Alternative property for nested links
+	 */
+	items?: Link<T>[];
+
+	[key?: string]: unknown;
 }
