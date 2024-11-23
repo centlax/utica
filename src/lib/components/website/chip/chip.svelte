@@ -1,9 +1,8 @@
 <script lang="ts">
 	/** Imports */
 	import { useUI } from '$lib/composables/ui.js';
-	import { cn } from '$lib/utils/merge.js';
 	import { chip, type ChipProps } from './chip.js';
-	import { stringify as st } from '$lib/utils/utils.js';
+	import { st, cn } from '$lib/utils/wind.js';
 
 	/** Props */
 	let { ...props }: ChipProps = $props();

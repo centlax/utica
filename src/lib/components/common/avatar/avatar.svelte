@@ -3,8 +3,7 @@
 	import { createAvatar, melt } from '@melt-ui/svelte';
 	import { avatar, type AvatarProps } from './avatar.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { stringify as st } from '$lib/utils/utils.js';
-	import { cn } from '$lib/utils/merge.js';
+	import { st, cn } from '$lib/utils/wind.js';
 
 	/** Props */
 	let { ...props }: AvatarProps = $props();

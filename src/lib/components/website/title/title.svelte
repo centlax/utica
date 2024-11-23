@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { useUI } from '$lib/composables/ui.js';
-	import { stringify } from '$lib/utils/utils.js';
-	import { cn } from '$lib/utils/merge.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { heading, type HeadingProps } from './title.js';
 
 	/** Imports */
@@ -13,7 +12,7 @@
 	/** Styles */
 	const ui = useUI(heading, props.class, props.override);
 	const css = $state({
-		heading: cn(stringify(ui.root, ui.opt.level[level]), ui.class)
+		heading: cn(st(ui.root, ui.opt.level[level]), ui.class)
 	});
 </script>
 

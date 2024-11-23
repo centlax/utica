@@ -2,8 +2,7 @@
 	/** Imports */
 	import { type ContainerProps, container } from './container.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { cn } from '$lib/utils/merge.js';
-	import { stringify } from '$lib/utils/utils.js';
+	import { cn, st } from '$lib/utils/wind.js';
 
 	/** Props */
 	let { ...props }: ContainerProps = $props();
@@ -12,6 +11,6 @@
 	const ui = useUI(container, props.class, props.override);
 </script>
 
-<div data-ui="layout" {...props} class={cn(stringify(ui.root), ui.class)}>
+<div data-ui="layout" {...props} class={cn(st(ui.root), ui.class)}>
 	{@render props.children()}
 </div>

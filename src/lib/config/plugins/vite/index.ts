@@ -18,7 +18,7 @@ export default function utica(config?: UserConfig) {
 		load(id: string) {
 			if (id === resolvedVirtualModuleId) {
 				// Directly export the config
-				return `export const userConfig = ${JSON.stringify(finalConfig, null, 2)};`;
+				return `export const userConfig = ${JSON.st(finalConfig, null, 2)};`;
 			}
 		}
 	};

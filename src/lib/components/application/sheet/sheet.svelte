@@ -3,10 +3,9 @@
 	import { createDialog, melt, createSync } from '@melt-ui/svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { useToggle } from '$lib/composables/toggle.js';
-	import { cn } from '$lib/utils/merge.js';
 	import { fromTransition, sheet, type SheetProps } from './sheet.js';
 	import { useTransition } from '$lib/composables/transition.js';
-	import { stringify as st } from '$lib/utils/utils.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { useUI } from '$lib/composables/ui.js';
 	import { ctxMelt } from '$lib/composables/melt.js';
 

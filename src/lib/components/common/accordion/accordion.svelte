@@ -5,8 +5,7 @@
 	import { slide } from 'svelte/transition';
 	import { accordion, type AccordionProps } from './accordion.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { stringify as st } from '$lib/utils/utils.js';
-	import { cn } from '$lib/utils/merge.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Imports */

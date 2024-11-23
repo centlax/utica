@@ -3,6 +3,7 @@ import type { UserConfig as UI } from '$lib/config/plugins/vite/default.js';
 export const primary = 'teal';
 
 export default defineApp({
+	modules: ['@centlax/ui'],
 	ui: {
 		colors: {
 			primary: 'sky',
@@ -11,6 +12,6 @@ export default defineApp({
 	}
 });
 
-function defineApp(config: { ui: UI }) {
+function defineApp(config: { modules: string[]; ui: UI }) {
 	return config;
 }

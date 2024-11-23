@@ -5,8 +5,7 @@
 	import { fade } from 'svelte/transition';
 	import { popover, type PopoverProps } from './popover.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { cn } from '$lib/utils/merge.js';
-	import { stringify } from '$lib/utils/utils.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Props */
@@ -58,10 +57,10 @@
 		use:melt={$content}
 		in:fade={txn.content.in}
 		out:fade={txn.content.out}
-		class={cn(stringify(ui.root), ui.class)}
+		class={cn(st(ui.root), ui.class)}
 	>
 		{#if props['arrow-size']}
-			<div class={stringify(ui.arrow)} use:melt={$arrow}></div>
+			<div class={st(ui.arrow)} use:melt={$arrow}></div>
 		{/if}
 		{@render props.content?.()}
 	</svelte:element>

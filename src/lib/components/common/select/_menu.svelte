@@ -5,8 +5,7 @@
 	import { fly } from 'svelte/transition';
 	import { UIcon } from '$lib/index.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { cn } from '$lib/utils/merge.js';
-	import { stringify as st } from '$lib/utils/utils.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { useTransition } from '$lib/composables/transition.js';
 
 	/** Props */

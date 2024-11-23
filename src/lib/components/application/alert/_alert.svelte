@@ -2,8 +2,7 @@
 	/** Imports */
 	import { type AlertProps, alert } from './alert.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { cn } from '$lib/utils/merge.js';
-	import { stringify } from '$lib/utils/utils.js';
+	import { st, cn } from '$lib/utils/wind.js';
 
 	/** Props */
 	let { title, ...props }: AlertProps = $props();
@@ -12,7 +11,7 @@
 	const ui = useUI(alert, props.class, props.override);
 </script>
 
-<div {...props} class={cn(stringify(ui.root), ui.class)}>
+<div {...props} class={cn(st(ui.root), ui.class)}>
 	{@render props.children?.()}
 	<div></div>
 	<div class="ml-3 w-0 flex-1 pt-0.5">

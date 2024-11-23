@@ -4,8 +4,7 @@
 	import { formFieldProxy } from 'sveltekit-superforms';
 	import { field, type FieldProps } from './field.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { cn } from '$lib/utils/merge.js';
-	import { stringify } from '$lib/utils/utils.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { fade } from 'svelte/transition';
 
 	/** Props  */
@@ -25,7 +24,7 @@
 </script>
 
 {#snippet _error()}
-	<p transition:fade class={stringify(ui.error)}>
+	<p transition:fade class={st(ui.error)}>
 		{#if typeof props.error === 'string' || $errors}
 			{props.error || $errors?.[0]}
 		{:else}
@@ -35,7 +34,7 @@
 {/snippet}
 
 {#snippet _help()}
-	<p class={stringify(ui.help)}>
+	<p class={st(ui.help)}>
 		{#if typeof props.help === 'string'}
 			{props.help}
 		{:else}
@@ -44,7 +43,7 @@
 	</p>
 {/snippet}
 
-<div {...props} class={cn(stringify(ui.root), ui.class)}>
+<div {...props} class={cn(st(ui.root), ui.class)}>
 	{@render props.children?.()}
 	{#if props.error || $errors}
 		{@render _error()}
