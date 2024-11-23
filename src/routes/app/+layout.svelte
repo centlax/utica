@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { UDashAside, UDashLayout, UDashMain, UIcon } from '$lib/index.js';
+	import { UBadge, UChip, UDashAside, UDashLayout, UDashMain, UIcon, ULabel } from '$lib/index.js';
 	import type { Link } from '$lib/types/link.js';
 	let { children } = $props();
 
@@ -105,13 +105,12 @@
 						>{identifier}</span
 					>
 				{/if}
-				<span class=""> {label} </span>
+				<span class="col-span-3" data-ui="label"> {label} </span>
 
 				{#if badge}
-					<span
-						class=" ml-auto w-9 min-w-max whitespace-nowrap rounded-full bg-white px-2.5 py-0.5 text-center text-xs/5 font-medium text-gray-600 ring-1 ring-inset ring-gray-200"
-						aria-hidden="true">{badge}</span
-					>
+					<UBadge aria-hidden="true">
+						{badge}
+					</UBadge>
 				{/if}
 			{/snippet}
 

@@ -25,9 +25,11 @@
 	/** Styles */
 	const ui = useUI(accordion, props.class, props.override);
 	const transition = useTransition();
-	const txn = $state(transition.set(props.transition, {
-		duration: 200
-	}));
+	const txn = $state(
+		transition.set(props.transition, {
+			duration: 200
+		})
+	);
 </script>
 
 <div data-ui="accordion" use:melt={$root} class={st(ui.root)}>

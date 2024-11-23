@@ -25,11 +25,21 @@
 	});
 </script>
 
-<button data-ui="switch" {...props} use:melt={$root}>
+<button
+	class="grid w-fit cursor-default grid-cols-2 gap-1 overflow-hidden rounded-full bg-primary-900 p-0.5"
+	data-ui="switch"
+	{...props}
+	use:melt={$root}
+>
 	{#each bits as bit}
-		<span>
+		<span class="relative col-span-1 size-6">
 			{#if bit === value}
-				<span in:send={{ key: 'checked' }} out:receive={{ key: 'checked' }}> </span>
+				<span
+					class="absolute inset-0 rounded-full bg-primary-500 transition-colors"
+					in:send={{ key: 'checked' }}
+					out:receive={{ key: 'checked' }}
+				>
+				</span>
 			{/if}
 		</span>
 	{/each}

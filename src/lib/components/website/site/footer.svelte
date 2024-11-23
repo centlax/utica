@@ -85,8 +85,6 @@
 						</div>
 					{/each}
 				</div>
-
-				
 			</div>
 		{/if}
 

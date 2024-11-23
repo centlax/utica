@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import utica from './src/lib/plugins/tailwind/preset';
+import utica from './src/lib/config/plugins/tailwind/preset';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],

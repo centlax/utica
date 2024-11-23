@@ -4,7 +4,16 @@ import type { Link } from '$lib/types/link.js';
 
 const heads: Link[] = [
 	{ label: 'Product' },
-	{ label: 'Features' },
+	{
+		title: 'Features',
+		items: [
+			{ label: 'Marketing', href: '/' },
+			{ label: 'Analytics', href: '/' },
+			{ label: 'Automation', href: '/' },
+			{ label: 'Commerce', href: '/' },
+			{ label: 'Insights', href: '/' }
+		]
+	},
 	{ label: 'Marketplace' },
 	{ label: 'Centlax' }
 ];

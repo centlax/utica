@@ -28,7 +28,7 @@ export interface SiteFootProps<T extends Item<T>> extends BaseProps<typeof siteF
 	topp?: Snippet;
 	children?: Snippet;
 	trigger?: Snippet<[T]>;
-	content?: Snippet<[T]>
+	content?: Snippet<[T]>;
 	east?: Snippet;
 	south?: Snippet;
 }

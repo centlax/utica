@@ -5,6 +5,7 @@
 	import { stringify as st } from '$lib/utils/utils.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { siteHead, type SiteHeadProps } from './header.js';
+	import { UToggle, UTooltip } from '$lib/index.js';
 
 	/** Props */
 	let { items, ...props }: SiteHeadProps<T> = $props();
@@ -19,7 +20,22 @@
 	</div>
 	<nav class={st(ui.center)}>
 		{#each items as item}
-			{@render props.trigger?.(item)}
+			<UTooltip
+				class="flex flex-col bg-white ring-1 ring-white/10 dark:bg-neutral-900 "
+				floaf={{ placement: 'bottom' }}
+			>
+				<UToggle>
+					{@render props.trigger?.(item)}
+				</UToggle>
+
+				{#snippet content()}
+					{#if item.items}
+						{#each item.items as _item}
+							{@render props.content?.(_item)}
+						{/each}
+					{/if}
+				{/snippet}
+			</UTooltip>
 		{/each}
 	</nav>
 	<div class={st(ui.east)}>

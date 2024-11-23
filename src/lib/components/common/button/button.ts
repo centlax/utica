@@ -51,7 +51,7 @@ const styles = {
 		variant: {
 			solid: {
 				color: {
-					background: 'bg-color-500 data-events:hover:bg-color-600',
+					background: 'bg-color-500 hover:bg-color-600',
 					border: statify({
 						default: 'ring-1 ring-inset ring-color-400',
 						focus: `focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-color-500`

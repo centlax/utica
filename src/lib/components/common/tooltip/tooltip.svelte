@@ -1,8 +1,10 @@
 <script lang="ts">
+	/** Imports */
 	import { useToggle } from '$lib/composables/toggle.js';
 	import { createTooltip, melt, createSync } from '@melt-ui/svelte';
 	import type { TooltipProps } from './tooltip.js';
 	import { cn } from '$lib/utils/merge.js';
+	import { useTransition } from '$lib/composables/transition.js';
 
 	let { value = $bindable(false), ...props }: TooltipProps = $props();
 
@@ -28,7 +30,10 @@
 		sync.open(value, (v) => (value = v));
 	});
 	const toggle = useToggle();
-	toggle.set(states.open, trigger, trigger);
+	toggle.set(states.open, $trigger, $trigger);
+
+	const transition = useTransition();
+	const txn = $state(transition.set());
 </script>
 
 {@render props.children?.()}

@@ -1,4 +1,3 @@
-export * from '../../composables/config.js';
 export * from '../../composables/dark.js';
 export * from '../../composables/dialog.js';
 export * from '../../composables/form.js';
@@ -10,3 +9,4 @@ export * from '../../composables/toast.js';
 export * from '../../composables/toggle.js';
 export * from '../../composables/transition.js';
 export * from '../../composables/trigger.js';
+export * from '../../composables/ui.js';

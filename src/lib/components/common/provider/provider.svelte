@@ -3,7 +3,7 @@
 	import { type ProviderProps } from './provider.js';
 	import { ModeWatcher } from 'mode-watcher';
 	import UToast from '../toast/toast.svelte';
-	import { fly } from 'svelte/transition';
+	import Color from './_app.svelte';
 
 	/** Props */
 	let { ...props }: ProviderProps = $props();
@@ -12,6 +12,7 @@
 </script>
 
 <ModeWatcher />
+<Color />
 {#if props.toast}
 	{@render props.toast()}
 {:else}

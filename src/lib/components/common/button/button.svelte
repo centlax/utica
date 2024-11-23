@@ -4,6 +4,7 @@
 	import { stringify } from '$lib/utils/utils.js';
 	import { cn } from '$lib/utils/merge.js';
 	import { type ButtonProps, button } from './button.js';
+	import { colorize } from '$lib/utils/color.js';
 
 	/** Props  */
 	let { variant = 'solid', color = 'color', size = 'md', ...props }: ButtonProps = $props();
@@ -25,6 +26,7 @@
 	{...props}
 	class={cn(css.button, ui.class)}
 	data-ui="button"
+	style={colorize('purple')}
 >
 	{#if props.children}
 		{@render props.children?.()}

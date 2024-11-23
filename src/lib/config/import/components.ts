@@ -1,4 +1,3 @@
-
 /** application */
 export { default as UDashAside } from '../../components/application/dash/aside.svelte';
 export { default as UDashHeader } from '../../components/application/dash/header.svelte';
@@ -8,8 +7,9 @@ export { default as UField } from '../../components/application/field/field.svel
 export { default as UFormDebug } from '../../components/application/form/debug.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
 export { default as UModal } from '../../components/application/modal/modal.svelte';
-export { default as UPaginate } from '../../components/application/paginate/paginate.svelte';
+export { default as UPaginate } from '../../components/application/paginate/__paginate.svelte';
 export { default as USheet } from '../../components/application/sheet/sheet.svelte';
+export { default as UTable } from '../../components/application/table/_table.svelte';
 export { default as UTextarea } from '../../components/application/textarea/textarea.svelte';
 
 /** common */
@@ -26,7 +26,6 @@ export { default as UInputPin } from '../../components/common/input/pin.svelte';
 export { default as UInputTag } from '../../components/common/input/tag.svelte';
 export { default as UProvider } from '../../components/common/provider/provider.svelte';
 export { default as USelect } from '../../components/common/select/select.svelte';
-export { default as USwitch } from '../../components/common/switch/switch.svelte';
 export { default as UToast } from '../../components/common/toast/toast.svelte';
 export { default as UToggle } from '../../components/common/toggle/toggle.svelte';
 export { default as UTooltip } from '../../components/common/tooltip/tooltip.svelte';
@@ -46,4 +45,5 @@ export { default as USiteFooter } from '../../components/website/site/footer.sve
 export { default as USiteHeader } from '../../components/website/site/header.svelte';
 export { default as USiteLayout } from '../../components/website/site/layout.svelte';
 export { default as USiteMain } from '../../components/website/site/main.svelte';
+export { default as USwitch } from '../../components/website/switch/switch.svelte';
 export { default as UTitle } from '../../components/website/title/title.svelte';

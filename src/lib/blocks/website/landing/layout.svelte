@@ -9,7 +9,7 @@
 		USiteMain,
 		UToggle
 	} from '$lib/index.js';
-	import Logo from './logo.svelte';
+	import Logo from '../logo.svelte';
 
 	let { children, data } = $props();
 	const { heads, foots } = data;

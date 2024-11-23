@@ -1,12 +1,17 @@
 <script lang="ts">
-	let { children } = $props();
-	let triggerRef = $state<HTMLButtonElement>();
+	/** Imports */
+	import { stringify as st } from '$lib/utils/utils.js';
+	import { cn } from '$lib/utils/merge.js';
+	import { siteLayout, type SiteLayoutProps } from './layout.js';
+	import { useUI } from '$lib/composables/ui.js';
 
-	function focusTrigger() {
-		triggerRef?.focus();
-	}
+	/** Props */
+	let { ...props }: SiteLayoutProps = $props();
+
+	/** Styles */
+	const ui = useUI(siteLayout, props.class, props.override)
 </script>
 
-<div class="bg-white dark:bg-neutral-900" aria-label="Global">
-	{@render children()}
+<div class={cn(st(ui.root), ui.class)} aria-label="Global">
+	{@render props.children?.()}
 </div>
