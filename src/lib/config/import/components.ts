@@ -7,10 +7,7 @@ export { default as UField } from '../../components/application/field/field.svel
 export { default as UFormDebug } from '../../components/application/form/debug.svelte';
 export { default as UForm } from '../../components/application/form/form.svelte';
 export { default as UModal } from '../../components/application/modal/modal.svelte';
-export { default as UPaginate } from '../../components/application/paginate/__paginate.svelte';
 export { default as USheet } from '../../components/application/sheet/sheet.svelte';
-export { default as UTable } from '../../components/application/table/_table.svelte';
-export { default as UTextarea } from '../../components/application/textarea/textarea.svelte';
 
 /** common */
 export { default as UAccordion } from '../../components/common/accordion/accordion.svelte';
@@ -19,6 +16,7 @@ export { default as UBadge } from '../../components/common/badge/badge.svelte';
 export { default as UButton } from '../../components/common/button/button.svelte';
 export { default as UCard } from '../../components/common/card/card.svelte';
 export { default as UContainer } from '../../components/common/container/container.svelte';
+export { default as UElement } from '../../components/common/element/element.svelte';
 export { default as UInputDate } from '../../components/common/input/date.svelte';
 export { default as UInputGroup } from '../../components/common/input/group.svelte';
 export { default as UInput } from '../../components/common/input/input.svelte';
@@ -37,9 +35,6 @@ export { default as UDescription } from '../../components/website/description/de
 export { default as UIcon } from '../../components/website/icon/icon.svelte';
 export { default as ULabel } from '../../components/website/label/label.svelte';
 export { default as UPopover } from '../../components/website/popover/popover.svelte';
-export { default as UPriceCard } from '../../components/website/price/card.svelte';
-export { default as UPrice } from '../../components/website/price/price.svelte';
-export { default as UScroll } from '../../components/website/scroll/scroll.svelte';
 export { default as USiteAside } from '../../components/website/site/aside.svelte';
 export { default as USiteFooter } from '../../components/website/site/footer.svelte';
 export { default as USiteHeader } from '../../components/website/site/header.svelte';

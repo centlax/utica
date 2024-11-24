@@ -24,7 +24,7 @@
 	{...props}
 	class={cn(css.button, ui.class)}
 	data-ui="button"
-	style={colorize('purple')}
+	style={colorize('red')}
 >
 	{#if props.children}
 		{@render props.children?.()}

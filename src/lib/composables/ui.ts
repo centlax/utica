@@ -1,4 +1,4 @@
-import { cn } from '$lib/utils/merge.js';
+import { cn } from '$lib/utils/wind.js';
 import type { DeepStyles } from '../types/ui.js';
 
 // Array of allowed keys in the ClassType interface

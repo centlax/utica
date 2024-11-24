@@ -1,9 +1,8 @@
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
-import utica from './src/lib/config/plugins/vite/index.js';
 
 export default defineConfig({
-	plugins: [sveltekit(), utica()],
+	plugins: [sveltekit()],
 
 	test: {
 		include: ['test/**/*.{test,spec}.{js,ts}']

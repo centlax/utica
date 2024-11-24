@@ -11,7 +11,7 @@ import {
 
 type OForm = Record<string, unknown>;
 
-export function useForm<T extends OForm, M = any, In extends Record<string, unknown> = T>(
+export function useForm<T extends OForm, M = unknown, In extends Record<string, unknown> = T>(
 	schema: SuperValidated<T, M, In>,
 	options?: FormOptions<T, M, In>
 ) {

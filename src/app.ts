@@ -1,5 +1,5 @@
 /** src/app.ts */
-import type { UserConfig as UI } from '$lib/config/plugins/vite/default.js';
+import type { UserConfig as UI } from '$lib/config/plugins/app/default.js';
 export const primary = 'teal';
 
 export default defineApp({

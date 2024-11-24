@@ -1,10 +1,8 @@
 <script lang="ts">
 	/** Imports */
 	import { ctxField } from '$lib/composables/form.js';
-	import { ctxInput } from '$lib/composables/input.js';
 	import { useUI } from '$lib/composables/ui.js';
 	import { st, cn } from '$lib/utils/wind.js';
-	import { melt } from '@melt-ui/svelte';
 	import { input, type InputProps } from './input.js';
 
 	/** Props */
@@ -14,8 +12,6 @@
 	const has = field.has();
 	const { proxy } = field.get();
 
-	const ctx = ctxInput();
-	const _melt: any = ctx.get();
 
 	let attrs = $state({
 		...props,
@@ -31,8 +27,5 @@
 	/** Melt Context */
 </script>
 
-{#if ctx.has()}
-	<input {...attrs} bind:value class={css.input} use:melt={_melt} />
-{:else}
-	<input {...attrs} bind:value class={css.input} />
-{/if}
+<input {...attrs} bind:value class={css.input} />
+

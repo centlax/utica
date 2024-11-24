@@ -4,7 +4,7 @@
 	import { useUI } from '$lib/composables/ui.js';
 	import { cn, st } from '$lib/utils/wind.js';
 	import { UCollapsible, UIcon, UPopover, UToggle } from '$lib/index.js';
-	import { type Item } from '$lib/types/item.js';
+	import type { Item } from '$lib/types/item.js';
 
 	/** Props */
 	let { items, mode = $bindable('pine'), ...props }: DashAsideProps<T> = $props();

@@ -1,8 +1,7 @@
 <script lang="ts">
 	/** Imports */
 	import { useUI } from '$lib/composables/ui.js';
-	import { st as st } from '$lib/utils/wind.js';
-	import { cn } from '$lib/utils/merge.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { select, type SelectProps } from './select.js';
 
 	/** Imports */

@@ -1,7 +1,6 @@
 <script lang="ts">
 	/** Imports */
-	import { st as st } from '$lib/utils/wind.js';
-	import { cn } from '$lib/utils/merge.js';
+	import { st, cn } from '$lib/utils/wind.js';
 	import { siteLayout, type SiteLayoutProps } from './layout.js';
 	import { useUI } from '$lib/composables/ui.js';
 

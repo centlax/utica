@@ -1,9 +1,7 @@
 <script lang="ts" generics="T extends Item<T>">
-	import { UAccordion } from '$lib/index.js';
-	import { type Item } from '$lib/types/item.js';
+	import type { Item } from '$lib/types/item.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { st as st } from '$lib/utils/wind.js';
-	import { cn } from '$lib/utils/merge.js';
+
 	import { siteFooter, type SiteFootProps } from './footer.js';
 
 	let { items, ...props }: SiteFootProps<T> = $props();
