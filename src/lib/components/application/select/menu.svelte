@@ -22,7 +22,6 @@
 </script>
 
 <div class="relative">
-	{open}
 	<UPopover
 		bind:value={open}
 		float={{ placement: 'bottom', fitViewport: true, sameWidth: true }}

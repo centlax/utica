@@ -2,17 +2,73 @@
 	import { useDark } from '$lib/composables/dark.js';
 	import {
 		UButton,
+		UCheckbox,
+		UCombobox,
 		UContainer,
 		UElement,
+		UInput,
 		USelect,
 		USelectMenu,
 		USheet,
 		USwitch
 	} from '$lib/index.js';
+	import type { Link } from '$lib/types/item.js';
 	const attrs = $state({
 		class: 'border rounded-lg p-4 hover:bg-gray-200'
 	});
 	const dark = useDark();
+	let mangas: Link[] = [
+		{
+			author: 'Kentaro Miura',
+			title: 'Berserk',
+			disabled: false
+		},
+		{
+			author: 'ONE',
+			title: 'Mob Psycho 100',
+			disabled: false
+		},
+		{
+			author: 'Hajime Isayama',
+			title: 'Attack on Titan',
+			disabled: false
+		},
+		{
+			author: 'Junji Ito',
+			title: 'Uzumaki',
+			disabled: false
+		},
+		{
+			author: 'Yomi Sarachi',
+			title: 'Steins Gate',
+			disabled: false
+		},
+		{
+			author: 'Tite Kubo',
+			title: 'Bleach',
+			disabled: false
+		},
+		{
+			author: 'Masashi Kishimoto',
+			title: 'Naruto',
+			disabled: true
+		},
+		{
+			author: 'Katsura Hoshino',
+			title: 'D.Gray Man',
+			disabled: false
+		},
+		{
+			author: 'Tsugumi Ohba',
+			title: 'Death Note',
+			disabled: false
+		},
+		{
+			author: 'Hiromu Arakawa',
+			title: 'Fullmetal Alchemist',
+			disabled: false
+		}
+	];
 </script>
 
 <section class="flex items-center justify-center overflow-x-hidden">
@@ -22,6 +78,8 @@
 
 <UContainer>
 	<USelectMenu />
+	<UCheckbox />
+	<UCombobox {mangas} />
 </UContainer>
 
 <USheet>

@@ -1,4 +1,6 @@
 /** application */
+export { default as UCheckbox } from '../../components/application/checkbox/checkbox.svelte';
+export { default as UCombobox } from '../../components/application/combobox/combobox.svelte';
 export { default as UDashAside } from '../../components/application/dash/aside.svelte';
 export { default as UDashHeader } from '../../components/application/dash/header.svelte';
 export { default as UDashLayout } from '../../components/application/dash/layout.svelte';
