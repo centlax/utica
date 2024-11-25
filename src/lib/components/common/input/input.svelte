@@ -12,6 +12,7 @@
 	const has = field.has();
 	const { proxy } = field.get();
 
+
 	let attrs = $state({
 		...props,
 		...(has.proxy ? proxy.constraints : {})
@@ -27,3 +28,4 @@
 </script>
 
 <input {...attrs} bind:value class={css.input} />
+
