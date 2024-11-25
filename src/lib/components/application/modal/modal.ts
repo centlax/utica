@@ -5,7 +5,7 @@ import type { TransitionParams } from '$lib/types/transition.js';
 import type { TransformKeysToKebab } from '$lib/types/utils.js';
 import type { Styles } from '$lib/types/ui.js';
 import type { CreateDialogProps } from '@melt-ui/svelte';
-import type { Snippet } from 'svelte';
+import type { Component, Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { FadeParams } from 'svelte/transition';
 
@@ -30,6 +30,7 @@ type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> &
 
 export interface ModalProps extends BaseProps<typeof modal>, Props {
 	children?: Snippet;
+	child?: Snippet<[Component]>;
 	toggle?: Snippet;
 	content?: Snippet;
 	value?: boolean;

@@ -8,13 +8,6 @@
 	const { attrs, action, state, transition } = ctx.get(as);
 </script>
 
-<svelte:element
-	this={props.this}
-	{...props}
-	{...attrs}
-	use:action
-	{...transition?.in ? { in: transition.in } : {}}
-	{...transition?.out ? { out: transition.out } : {}}
->
+<svelte:element this={props.this} {...props} {...attrs} use:action>
 	{@render children?.()}
 </svelte:element>

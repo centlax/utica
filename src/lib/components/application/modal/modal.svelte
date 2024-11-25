@@ -7,9 +7,9 @@
 	import { useTransition } from '$lib/composables/transition.js';
 	import { cn, st } from '$lib/utils/wind.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { ctxMelt } from '$lib/composables/melt.js';
 	import { fade } from 'svelte/transition';
-
+	import { ctxElement } from '$lib/components/common/element/index.js';
+	import { UButton, UIcon } from '$lib/index.js';
 	/** props */
 	let { as = 'div', value = $bindable(false), ...props }: ModalProps = $props();
 	const {
@@ -37,17 +37,19 @@
 
 	/** Styles */
 	const ui = useUI(modal, props.class, props.override);
-	const over = ctxMelt('overlay');
-	over.set($overlay);
 
 	const transition = useTransition();
 	const txn = $state({
 		overlay: transition.set(props['overlay-transition'], { duration: 150 }),
 		content: transition.set(props.transition, { duration: 150, y: 8, start: 0.96 })
 	});
+	const element = ctxElement();
+	element.set('trigger', { attrs: { ...$trigger }, action: $trigger.action });
+	element.set('close', { attrs: { ...$close }, action: $close.action });
 </script>
 
 {@render props.children?.()}
+{@render props.child?.(UButton)}
 
 {#if value}
 	<div class={st(ui.root)} use:melt={$portalled}>
