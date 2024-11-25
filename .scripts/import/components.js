@@ -20,19 +20,19 @@ function generateImports(dirPath, imports = [], level = 0) {
 				imports.push(`\n/** ${file} */`);
 			}
 			imports = generateImports(filePath, imports, level + 1);
-		} else if (file.endsWith('.svelte') && !file.startsWith('_')) {
+		} else if (file.endsWith('.ts') && !file.endsWith('.svelte.ts')) {
 			const componentDir = path.basename(path.dirname(filePath));
 			const fileNameWithoutExtension = path.basename(file, '.svelte');
 			const pascalCaseDirName = toPascalCase(componentDir);
 			let importName = pascalCaseDirName;
 
 			if (fileNameWithoutExtension !== 'index' && fileNameWithoutExtension !== componentDir) {
-				const pascalCaseFileName = toPascalCase(fileNameWithoutExtension);
-				importName = `${pascalCaseDirName}${pascalCaseFileName}`;
+				//const pascalCaseFileName = toPascalCase(fileNameWithoutExtension);
+				importName = `${pascalCaseDirName}`;
 			}
 
-			const importPath = `../../${path.relative(libDir, filePath).replace(/\\/g, '/')}`;
-			imports.push(`export { default as U${importName} } from '${importPath}';`);
+			const importPath = `$lib/${path.relative(libDir, filePath).replace(/\.ts$/, '.js')}`;
+			imports.push(`export * as ${importName} from '${importPath}';`);
 		}
 	}
 

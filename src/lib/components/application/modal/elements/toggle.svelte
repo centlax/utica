@@ -1,6 +1,5 @@
 <script lang="ts">
-	import '$lib/theme/app.css';
 	let { children } = $props();
 </script>
 
-{@render children()}
+{@render children?.()}
