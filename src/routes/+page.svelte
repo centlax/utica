@@ -1,14 +1,28 @@
 <script lang="ts">
-	import { UButton, UElement, USheet, USwitch } from '$lib/index.js';
+	import { useDark } from '$lib/composables/dark.js';
+	import {
+		UButton,
+		UContainer,
+		UElement,
+		USelect,
+		USelectMenu,
+		USheet,
+		USwitch
+	} from '$lib/index.js';
 	const attrs = $state({
 		class: 'border rounded-lg p-4 hover:bg-gray-200'
 	});
+	const dark = useDark();
 </script>
 
 <section class="flex items-center justify-center overflow-x-hidden">
-	<UButton>Open</UButton>
+	<UButton onclick={dark.toggle}>dark mode</UButton>
 	<USwitch />
 </section>
+
+<UContainer>
+	<USelectMenu />
+</UContainer>
 
 <USheet>
 	<UElement as="trigger" this="button">OPEN</UElement>

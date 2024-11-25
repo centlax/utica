@@ -22,9 +22,11 @@ type Props = Omit<HTMLAttributes<HTMLElement>, 'class'> &
 
 export interface PopoverProps extends BaseProps<typeof popover>, Props {
 	children?: Snippet;
+	trigger?: Snippet;
 	content?: Snippet;
 	float?: CreatePopoverProps['positioning'];
 	value?: boolean;
 	transition?: TransitionParams<FadeParams>;
-	as?: string;
+	as?: keyof HTMLElementTagNameMap;
+	'trigger-as'?: keyof HTMLElementTagNameMap;
 }

@@ -7,7 +7,6 @@
 	import { useTransition } from '$lib/composables/transition.js';
 	import { st, cn } from '$lib/utils/wind.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { ctxMelt } from '$lib/composables/melt.js';
 	import { ctxElement } from '$lib/components/common/element/index.js';
 
 	/** Props */
@@ -34,8 +33,6 @@
 
 	const toogle = useToggle();
 	toogle.set(states.open, $trigger, $close);
-	const over = ctxMelt('overlay');
-	over.set($overlay);
 
 	/** Styles */
 	const ui = useUI(sheet, props.class, props.override);

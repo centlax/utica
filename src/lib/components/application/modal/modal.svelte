@@ -7,7 +7,6 @@
 	import { useTransition } from '$lib/composables/transition.js';
 	import { cn, st } from '$lib/utils/wind.js';
 	import { useUI } from '$lib/composables/ui.js';
-	import { ctxMelt } from '$lib/composables/melt.js';
 	import { fade } from 'svelte/transition';
 
 	/** props */
@@ -37,8 +36,6 @@
 
 	/** Styles */
 	const ui = useUI(modal, props.class, props.override);
-	const over = ctxMelt('overlay');
-	over.set($overlay);
 
 	const transition = useTransition();
 	const txn = $state({

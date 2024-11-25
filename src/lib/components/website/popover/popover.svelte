@@ -48,7 +48,9 @@
 </script>
 
 {@render props.children?.()}
-
+<svelte:element this={props['trigger-as'] ?? 'span'} use:melt={$trigger}>
+	{@render props.trigger?.()}
+</svelte:element>
 {#if value}
 	<svelte:element
 		this={as}
