@@ -27,7 +27,6 @@
 		sync.open(value, (v) => (value = v));
 	});
 	const toggle = useToggle();
-	//toggle.set($trigger)
 
 	/** Styles */
 	const ui = useUI(collapsible, props.class, props.override);

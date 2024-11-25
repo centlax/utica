@@ -71,7 +71,7 @@
 	];
 </script>
 
-<section class="flex items-center justify-center overflow-x-hidden">
+<section class="flex items-center justify-center overflow-x-hidden py-10">
 	<UButton onclick={dark.toggle}>dark mode</UButton>
 	<USwitch />
 </section>

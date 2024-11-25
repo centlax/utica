@@ -1,5 +1,6 @@
 /** Imports */
 
+import type { BaseProps } from '$lib/types/prop.js';
 import type { Styles } from '$lib/types/ui.js';
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
@@ -25,8 +26,8 @@ const styles = {
 export const card = styles;
 
 /** Props */
-type Props = HTMLAttributes<HTMLDivElement>;
-export interface CardProps extends Props {
+type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+export interface CardProps extends BaseProps<typeof card>, Props {
 	children?: Snippet;
 	north?: Snippet;
 	south?: Snippet;

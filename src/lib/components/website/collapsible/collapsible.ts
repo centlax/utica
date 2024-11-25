@@ -26,5 +26,5 @@ export interface CollapsibleProps extends BaseProps<typeof collapsible>, Props {
 	content?: Snippet;
 	transition?: TransitionParams<SlideParams>;
 	value?: boolean;
-	as?: string;
+	as?: keyof HTMLElementTagNameMap;
 }
