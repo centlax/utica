@@ -28,6 +28,7 @@ const styles = {
 export const siteHead = styles;
 
 /** Props */
+
 type Props = Omit<HTMLAttributes<HTMLElement>, 'class'>;
 export interface SiteHeadProps<T extends Item<T>> extends BaseProps<typeof siteHead>, Props {
 	items: T[];
@@ -36,4 +37,6 @@ export interface SiteHeadProps<T extends Item<T>> extends BaseProps<typeof siteH
 	east?: Snippet;
 	trigger?: Snippet<[T]>;
 	content?: Snippet<[T]>;
+	logo?: Snippet
+
 }

@@ -13,6 +13,7 @@ type Props = HTMLAttributes<HTMLDivElement>;
 export interface TooltipProps extends Props {
 	children?: Snippet;
 	content?: Snippet;
+	trigger?: Snippet;
 	floaf?: CreateTooltipProps['positioning'];
 	'arrow-size'?: CreateTooltipProps['arrowSize'];
 	'escape-behavior'?: CreateTooltipProps['escapeBehavior'];
@@ -24,4 +25,5 @@ export interface TooltipProps extends Props {
 	group?: CreateTooltipProps['group'];
 	'default-open'?: CreateTooltipProps['defaultOpen'];
 	value?: boolean;
+	'trigger-as'?: keyof HTMLElementTagNameMap;
 }

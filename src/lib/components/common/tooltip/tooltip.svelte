@@ -37,7 +37,9 @@
 </script>
 
 {@render props.children?.()}
-
+<svelte:element this={props['trigger-as'] ?? 'span'} use:melt={$trigger}>
+	{@render props.trigger?.()}
+</svelte:element>
 {#if value}
 	<div data-ui="tooltip" {...props} use:melt={$content} class={cn('relative z-10', props.class)}>
 		{@render props.content?.()}

@@ -1,6 +1,6 @@
 import { getIconCollections, iconsPlugin } from '@egoist/tailwindcss-icons';
 import type { Config } from 'tailwindcss';
-//import colors from 'tailwindcss/colors.js';
+import { defaultColors } from './colors.js';
 import aspectRatio from '@tailwindcss/aspect-ratio';
 import containerQueries from '@tailwindcss/container-queries';
 import forms from '@tailwindcss/forms';
@@ -22,6 +22,7 @@ export default function (): Partial<Config> {
 					'2xl': '1536px'
 				}
 			},
+			colors: defaultColors,
 			extend: {
 				colors: {
 					primary: {

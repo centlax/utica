@@ -18,6 +18,7 @@ export { default as USheet } from '../../components/application/sheet/sheet.svel
 /** common */
 export { default as UAccordion } from '../../components/common/accordion/accordion.svelte';
 export { default as UAvatar } from '../../components/common/avatar/avatar.svelte';
+export { default as UAvatarGroup } from '../../components/common/avatar/group.svelte';
 export { default as UBadge } from '../../components/common/badge/badge.svelte';
 export { default as UButton } from '../../components/common/button/button.svelte';
 export { default as UCard } from '../../components/common/card/card.svelte';

@@ -11,7 +11,8 @@ const styles = {
 		grid: 'grid grid-cols-2 gap-1',
 		sizing: 'w-fit',
 		layout: ' cursor-pointer overflow-hidden transition-colors  ',
-		background: 'data-[state=unchecked]:bg-gray-200 dark:data-[state=unchecked]:bg-gray-800 data-[state=checked]:bg-primary-500',
+		background:
+			'data-[state=unchecked]:bg-gray-200 dark:data-[state=unchecked]:bg-gray-800 data-[state=checked]:bg-primary-500',
 		spacing: 'p-0.5',
 		border: statify({
 			default: 'rounded-full focus:outline-none',
@@ -25,7 +26,7 @@ const styles = {
 		checked: {
 			layout: 'absolute inset-0 ',
 			border: 'rounded-full',
-			background: 'bg-white dark:bg-gray-600 shadow-sm',
+			background: 'bg-white dark:bg-gray-600 shadow-sm'
 		}
 	}
 } satisfies Styles;
